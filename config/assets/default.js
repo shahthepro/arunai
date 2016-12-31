@@ -24,6 +24,8 @@ module.exports = {
         'public/lib/angular-ui-notification/dist/angular-ui-notification.js',
         'public/lib/angular-ui-router/release/angular-ui-router.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
+        'public/lib/jquery/dist/jquery.js',
+        'public/lib/bootstrap/dist/js/bootstrap.js',
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
@@ -47,7 +49,8 @@ module.exports = {
       'modules/**/*/img/**/*.jpg',
       'modules/**/*/img/**/*.png',
       'modules/**/*/img/**/*.gif',
-      'modules/**/*/img/**/*.svg'
+      'modules/**/*/img/**/*.svg',
+      'assets/img/*'
     ],
     views: ['modules/*/client/views/**/*.html'],
     templates: ['build/templates.js']

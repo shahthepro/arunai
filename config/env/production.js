@@ -10,7 +10,7 @@ module.exports = {
     caBundle: './config/sslcerts/cabundle.crt'
   },
   sessionSecret: process.env.SESSION_SECRET || 'Your Secret Key Goes Here',
-  port: process.env.PORT || 8443,
+  port: process.env.PORT || 9985,
   // Binding to 127.0.0.1 is safer in production.
   host: process.env.HOST || '0.0.0.0',
   db: {

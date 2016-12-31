@@ -150,7 +150,7 @@ gulp.task('uglify', function () {
     .pipe(plugins.uglify({
       mangle: false
     }))
-    .pipe(plugins.concat('application.min.js'))
+    .pipe(plugins.concat('app.min.js'))
     .pipe(plugins.rev())
     .pipe(gulp.dest('public/dist'));
 });
@@ -159,7 +159,7 @@ gulp.task('uglify', function () {
 gulp.task('cssmin', function () {
   return gulp.src(defaultAssets.client.css)
     .pipe(plugins.csso())
-    .pipe(plugins.concat('application.min.css'))
+    .pipe(plugins.concat('app.min.css'))
     .pipe(plugins.rev())
     .pipe(gulp.dest('public/dist'));
 });
@@ -169,7 +169,9 @@ gulp.task('sass', function () {
   return gulp.src(defaultAssets.client.sass)
     .pipe(plugins.sass())
     .pipe(plugins.autoprefixer())
-    .pipe(gulp.dest('./modules/'));
+    .pipe(gulp.dest(function(file) {
+      return file.base;
+    }));
 });
 
 // Less task
@@ -250,7 +252,7 @@ gulp.task('copyLocalEnvConfig', function () {
 
 // Make sure upload directory exists
 gulp.task('makeUploadsDir', function () {
-  return fs.mkdir('modules/users/client/img/profile/uploads', function (err) {
+  return fs.mkdir('public/uploads/', function (err) {
     if (err && err.code !== 'EEXIST') {
       console.error(err);
     }
@@ -404,7 +406,7 @@ gulp.task('lint', function (done) {
 
 // Lint project files and minify them into two production files.
 gulp.task('build', function (done) {
-  runSequence('env:dev', 'wiredep:prod', 'lint', ['uglify', 'cssmin'], done);
+  runSequence('env:dev', 'wiredep:prod', 'lint', ['uglify', 'cssmin'], 'imagemin', done);
 });
 
 // Run the project tests

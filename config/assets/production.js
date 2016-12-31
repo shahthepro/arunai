@@ -27,7 +27,7 @@ module.exports = {
         // endbower
       ]
     },
-    css: 'public/dist/application*.min.css',
-    js: 'public/dist/application*.min.js'
+    css: 'public/dist/app*.min.css',
+    js: 'public/dist/app*.min.js'
   }
 };
