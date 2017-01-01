@@ -1,0 +1,14 @@
+.hameid-frontend {
+    footer {
+        background: url(/dist/img/bg-header.png) center top repeat-x;
+        display: table;
+        height: 70px;
+        width: 100%;
+        .footer-wrapper {
+            clear: both;
+            width: 100%;
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+}

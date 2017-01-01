@@ -1,0 +1,43 @@
+.hameid-frontend {
+    header {
+        height: 120px;
+        background: url(/dist/img/bg-header.png) center top repeat-x;
+        .navbar {
+            display: table;
+            margin-bottom: 0px;
+            width: 100%;
+            height: 100%;
+        }
+        .container {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .navbar-toggle .icon-bar {
+            background-color: #222;
+        }
+
+        .nav > li > a:hover, .nav > li > a:focus, .nav > li.active > a, a:hover,
+        .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+            background: none;
+        }
+        
+        a {
+            -o-transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+
+        ul ul {
+            background: url(/dist/img/bg-header.png) center top repeat-x;
+            background-color: #1c1919;
+            li {
+                color: #FFF;
+                a {
+                    color: #FFF;
+                }
+            }
+        }
+    }
+}

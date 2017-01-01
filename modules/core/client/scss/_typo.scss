@@ -1,0 +1,14 @@
+.hameid-frontend {
+    background: url(/dist/img/bg.png), url(/dist/img/bg-top.png);
+    background-position: center top;
+    background-repeat: repeat, no-repeat;
+    color: #9b9191;
+    background-color: #1c1919;
+
+    a:not(.btn) {
+        color: #9b9191;
+        &:hover {
+            color: #FFF;
+        }
+    }
+}

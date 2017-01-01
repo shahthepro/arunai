@@ -1,0 +1,28 @@
+.hameid-frontend {
+    .content {
+        margin-bottom: 30px;
+
+        .featured-content {
+            margin-bottom: 30px;
+            border: 10px #FFF solid;
+            border-radius: 6px;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .section {
+        border-radius: 6px;
+        padding: 20px;
+        margin-bottom: 30px;
+        background: url(/dist/img/bg-header.png) center top repeat-x;
+        
+        .page-header, .page-header h1 {
+            margin: 0;
+            padding: 0 0 20px 0;
+            border: 0px;
+        }
+    }
+}
