@@ -21,6 +21,10 @@
         .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
             background: none;
         }
+
+        li.active a {
+            color: #FFF;
+        }
         
         a {
             -o-transition: all 0.3s ease;

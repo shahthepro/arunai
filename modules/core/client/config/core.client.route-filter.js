@@ -12,6 +12,12 @@
     $rootScope.$on('$stateChangeSuccess', stateChangeSuccess);
 
     function stateChangeStart(event, toState, toParams, fromState, fromParams) {
+      // Reload layout if necessary
+      if (fromState.name !== '' && toState.name.startsWith('admin') !== fromState.name.startsWith('admin')) {
+        event.preventDefault();
+        $window.location.href = $state.href(toState.name, toParams, { absolute: true });
+      }
+
       // Check authentication before changing state
       if (toState.data && toState.data.roles && toState.data.roles.length > 0) {
         var allowed = false;
@@ -33,11 +39,6 @@
             });
           }
         }
-      }
-      
-      // Reload layout if necessary
-      if (fromState.name !== '' && toState.name.startsWith('admin') !== fromState.name.startsWith('admin')) {
-        $window.location.href = $state.href(toState.name, toParams, {absolute: true});
       }
     }
 

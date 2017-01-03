@@ -16,6 +16,15 @@
         data: {
           roles: ['admin']
         }
+      })
+      .state('admin.dashboard', {
+        url: '',
+        templateUrl: '/modules/core/client/views/admin/home.client.view.html',
+        controller: 'AdminDashboardController',
+        controllerAs: 'vm',
+        data: {
+          roles: ['admin']
+        }
       });
   }
 }());
