@@ -31,6 +31,15 @@
           pageTitle: 'Edit {{ userResolve.displayName }}'
         }
       })
+      .state('admin.user-add', {
+        url: '/users/new',
+        templateUrl: '/modules/users/client/views/admin/add-user.client.view.html',
+        controller: 'UserController',
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'New User'
+        }
+      })
       .state('admin.user-edit', {
         url: '/users/:userId/edit',
         templateUrl: '/modules/users/client/views/admin/edit-user.client.view.html',

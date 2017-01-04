@@ -14,7 +14,7 @@
         url: '/admin',
         template: '<ui-view/>',
         data: {
-          roles: ['admin']
+          roles: ['student', 'professor', 'hod', 'admin']
         }
       })
       .state('admin.dashboard', {
@@ -23,7 +23,7 @@
         controller: 'AdminDashboardController',
         controllerAs: 'vm',
         data: {
-          roles: ['admin']
+          roles: ['student', 'professor', 'hod', 'admin']
         }
       });
   }

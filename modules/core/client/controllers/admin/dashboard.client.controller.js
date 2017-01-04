@@ -5,7 +5,10 @@
     .module('core')
     .controller('AdminDashboardController', AdminDashboardController);
 
-  function AdminDashboardController() {
+  AdminDashboardController.$inject = ['$scope', '$state', 'Authentication', 'menuService'];
+
+  function AdminDashboardController($scope, $state, Authentication, menuService) {
     var vm = this;
+    vm.authentication = Authentication;
   }
 }());
