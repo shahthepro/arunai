@@ -19,6 +19,7 @@ module.exports = {
         'public/lib/angular-animate/angular-animate.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
         'public/lib/ng-file-upload/ng-file-upload.js',
+        'public/lib/angular-file-upload/dist/angular-file-upload.js',
         'public/lib/angular-messages/angular-messages.js',
         'public/lib/angular-mocks/angular-mocks.js',
         'public/lib/angular-route/angular-route.js',

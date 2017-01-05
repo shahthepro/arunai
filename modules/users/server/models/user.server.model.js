@@ -108,13 +108,13 @@ var UserSchema = new Schema({
       type: String,
       enum: ['user', 'student', 'professor', 'hod', 'admin']
     }],
-    default: ['user'],
+    default: ['student'],
     required: 'Please provide at least one role'
   },
   department: {
     type: String,
     default: '',
-    required: true
+    required: 'Select a department'
   },
   userMeta: [{
     type: Schema.ObjectId,

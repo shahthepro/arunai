@@ -19,6 +19,15 @@
           pageTitle: 'Users List'
         }
       })
+      .state('admin.user-add', {
+        url: '/users/new',
+        templateUrl: '/modules/users/client/views/admin/add-user.client.view.html',
+        controller: 'UserAddController',
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'New User'
+        }
+      })
       .state('admin.user', {
         url: '/users/:userId',
         templateUrl: '/modules/users/client/views/admin/view-user.client.view.html',
@@ -31,15 +40,6 @@
           pageTitle: 'Edit {{ userResolve.displayName }}'
         }
       })
-      .state('admin.user-add', {
-        url: '/users/new',
-        templateUrl: '/modules/users/client/views/admin/add-user.client.view.html',
-        controller: 'UserController',
-        controllerAs: 'vm',
-        data: {
-          pageTitle: 'New User'
-        }
-      })
       .state('admin.user-edit', {
         url: '/users/:userId/edit',
         templateUrl: '/modules/users/client/views/admin/edit-user.client.view.html',
@@ -50,6 +50,15 @@
         },
         data: {
           pageTitle: 'Edit User {{ userResolve.displayName }}'
+        }
+      })
+      .state('admin.students-add', {
+        url: '/students/add',
+        templateUrl: '/modules/users/client/views/students/add.client.view.html',
+        controller: 'StudentController',
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'Add Students'
         }
       });
 

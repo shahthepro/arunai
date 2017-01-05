@@ -1,37 +1,67 @@
 <div class="content-header">
-  <h1>New User</h1>
+  <h1>New Student</h1>
 </div>
 <section class="content body">
-  <div class="col-md-12">
-    <form name="vm.userForm" ng-submit="vm.update(vm.userForm.$valid)" novalidate>
-      <fieldset>
-        <div class="form-group" show-errors>
-          <label for="firstName">First Name</label>
-          <input type="text" id="firstName" name="firstName" class="form-control" ng-model="vm.user.firstName" placeholder="First Name" required autofocus />
-          <div ng-messages="vm.userForm.firstName.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">First name is required.</p>
+  <form name="vm.userForm" ng-submit="vm.signup(vm.userForm.$valid)" class="signin" novalidate autocomplete="off">
+    <fieldset>
+      <div class="form-group" show-errors>
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName" class="form-control" ng-model="vm.credentials.firstName" placeholder="First Name" required autofocus>
+        <div ng-messages="vm.userForm.firstName.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">First name is required.</p>
+        </div>
+      </div>
+      <div class="form-group" show-errors>
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName" class="form-control" ng-model="vm.credentials.lastName" placeholder="Last Name" required>
+        <div ng-messages="vm.userForm.lastName.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Last name is required.</p>
+        </div>
+      </div>
+      <div class="form-group" show-errors>
+        <label for="department">Department:</label>
+        <select id="department" name="department" class="form-control" ng-model="vm.credentials.department" required>
+          <option value="student">CSE</option>
+          <option value="professor">ECE</option>
+          <option value="hod">IT</option>
+        </select>
+        <div ng-messages="vm.userForm.department.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Department is required.</p>
+        </div>
+      </div>
+      <div class="form-group" show-errors>
+        <label for="username">Register Number</label>
+        <input type="text" id="username" name="username" class="form-control" ng-model="vm.credentials.username" ng-pattern="vm.usernameRegex" placeholder="Username" lowercase required>
+        <div ng-messages="vm.userForm.username.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Username is required.</p>
+          <p class="help-block error-text" ng-message="pattern">Please enter a valid username: 3+ characters long, non restricted word, characters "_-.", no consecutive dots, does not begin or end with dots, letters a-z and numbers 0-9.</p>
+        </div>
+      </div>
+      <div class="form-group" show-errors>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="form-control" ng-model="vm.credentials.email" placeholder="Email" lowercase required>
+        <div ng-messages="vm.userForm.email.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Email address is required.</p>
+          <p class="help-block error-text" ng-message="email">Email address is invalid.</p>
+        </div>
+      </div>
+      <div class="form-group" show-errors>
+        <label for="password">Password</label>
+          <input type="password" id="password" name="password" class="form-control" ng-model="vm.credentials.password" placeholder="Password" uib-popover="{{vm.getPopoverMsg()}}" popover-trigger="outsideClick" password-validator required>
+        <div ng-messages="vm.userForm.password.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Password is required.</p>
+          <div ng-repeat="passwordError in passwordErrors">
+            <p class="help-block error-text" ng-show="vm.userForm.password.$error.requirements">{{passwordError}}</p>
           </div>
         </div>
-        <div class="form-group" show-errors>
-          <label for="lastName">Last Name</label>
-          <input type="text" id="lastName" name="lastName" class="form-control" ng-model="vm.user.lastName" placeholder="Last Name" required />
-          <div ng-messages="vm.userForm.lastName.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Last name is required.</p>
-          </div>
-        </div>
-        <div class="form-group" show-errors>
-          <label class="control-label" for="roles">Roles</label>
-          <div class="controls">
-            <input class="form-control" type="text" name="roles" ng-model="vm.user.roles" id="roles" ng-list required />
-            <div ng-messages="vm.userForm.roles.$error" role="alert">
-              <p class="help-block error-text" ng-message="required">At least one role is required.</p>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <input type="submit" value="Update" class="btn btn-default">
-        </div>
-      </fieldset>
-    </form>
-  </div>
+      </div>
+      <div class="form-group" ng-show="!vm.userForm.password.$error.required">
+        <label>Password Requirements</label>
+        <uib-progressbar value="requirementsProgress" type="{{requirementsColor}}"><span style="color:white; white-space:nowrap;">{{requirementsProgress}}%</span></uib-progressbar>
+      </div>
+      <div class="text-center form-group">
+        <button type="submit" class="btn btn-primary">Add User</button>
+      </div>
+    </fieldset>
+  </form>
 </section>

@@ -18,22 +18,22 @@
           </div>
         </div>
         <div class="form-group" show-errors>
-          <label for="role">I am a:</label>
+          <label for="role">I am a </label>
           <div>
-            <label class="radio-inline"><input type="radio" id="role" name="role" value="student" ng-model="vm.credentials.role" required>Student</label>
-            <label class="radio-inline"><input type="radio" id="role" name="role" value="professor" ng-model="vm.credentials.role" required>Professor</label>
-            <label class="radio-inline"><input type="radio" id="role" name="role" value="hod" ng-model="vm.credentials.role" required>Head of the Department</label>
+            <label class="radio-inline"><input type="radio" id="role" name="roles[]" value="student" ng-model="vm.credentials.roles" required>Student</label>
+            <label class="radio-inline"><input type="radio" id="role" name="roles[]" value="professor" ng-model="vm.credentials.roles" required>Professor</label>
+            <label class="radio-inline"><input type="radio" id="role" name="roles[]" value="hod" ng-model="vm.credentials.roles" required>Head of the Department</label>
           </div>
           <div ng-messages="vm.userForm.role.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Select a role.</p>
           </div>
         </div>
         <div class="form-group" show-errors>
-          <label for="department">Department:</label>
+          <label for="department">Department</label>
           <select id="department" name="department" class="form-control" ng-model="vm.credentials.department" required>
-            <option value="student">CSE</option>
-            <option value="professor">ECE</option>
-            <option value="hod">IT</option>
+            <option value="CSE">CSE</option>
+            <option value="ECE">ECE</option>
+            <option value="IT">IT</option>
           </select>
           <div ng-messages="vm.userForm.department.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Department is required.</p>

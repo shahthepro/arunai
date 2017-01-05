@@ -20,11 +20,11 @@
   <script type="text/javascript" href="/lib/AdminLTE/dist/js/app.js"></script>
 </head>
 
-<body class="ng-cloak skin-purple fixed">
+<body class="ng-cloak skin-purple">
   <div class="wrapper">
     <header id="header" ng-controller="AdminHeaderController as vm" ng-include="'/modules/core/client/views/admin/header.client.view.html'" class="main-header"></header>
     <aside id="sidebar" ng-controller="AdminSidebarController as vm" ng-include="'/modules/core/client/views/admin/sidebar.client.view.html'" class="main-sidebar"></aside>
-    <section class="content-wrapper">
+    <section class="content-wrapper" style="min-height: 700px;">
       {{{block "content"}}}
     </section>
 
