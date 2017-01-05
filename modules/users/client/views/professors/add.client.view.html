@@ -1,0 +1,22 @@
+<div class="content-header">
+    <h1>Add Professors<small>Import from CSV</small></h1>
+</div>
+<section class="content body">
+    <form ng-submit="vm.parseAndImport()">
+        <div class="form-group">
+            <label for="department">Department</label>
+            <select class="form-control" ng-model="vm.department">
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="IT">IT</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="csvFile">CSV File</label>
+            <input class="form-control" type="file" accept=".csv" name="csvFile" file-list-bind="vm.csvFiles">
+        </div>
+        <div class="form-group">
+            <button ng-disabled="!vm.csvFiles.length" type="submit" class="btn btn-success">Import Data</button>
+        </div>
+    </form>
+</section>

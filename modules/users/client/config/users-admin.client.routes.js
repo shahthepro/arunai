@@ -52,6 +52,16 @@
           pageTitle: 'Edit User {{ userResolve.displayName }}'
         }
       })
+      .state('admin.professors-add', {
+        url: '/professors/add',
+        templateUrl: '/modules/users/client/views/professors/add.client.view.html',
+        controller: 'AddProfessorsController',
+        controllerAs: 'vm',
+        data: {
+          roles: ['hod', 'admin'],
+          pageTitle: 'Add Professors'
+        }
+      })
       .state('admin.students-add', {
         url: '/students/add',
         templateUrl: '/modules/users/client/views/students/add.client.view.html',

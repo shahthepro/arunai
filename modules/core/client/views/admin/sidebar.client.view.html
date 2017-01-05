@@ -11,14 +11,21 @@
 
 
 <!-- Sidebar Menu -->
-<ul class="sidebar-menu">
+<ul class="nav sidebar-menu">
     <li ui-sref-active="active"><a ui-sref="admin.dashboard"><span>Overview</span></a></li>
     <li class="header">ATTENDANCE</li>
     <li ui-sref-active="active"><a ui-sref="admin.null"><span>Daily Attendance</span></a></li>
     <li ui-sref-active="active"><a ui-sref="admin.null"><span>View Report</span></a></li>
     <li class="header">COURSES</li>
     <li ui-sref-active="active"><a ui-sref="admin.courses-add"><span>Add Courses</span></a></li>
-    <li ui-sref-active="active"><a ui-sref="admin.courses-assign"><span>Assign Courses</span></a></li>
+    <li ui-sref-active="active"><a ui-sref="admin.courses-assign"><span>Assign Courses</span></a></li>      
+    <li class="treeview">
+        <a href="#"><span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="nav treeview-menu">
+          <li><a href="#">Link in level 2</a></li>
+          <li><a href="#">Link in level 2</a></li>
+        </ul>
+      </li>
     <li class="header">PROFESSORS</li>
     <li ui-sref-active="active"><a ui-sref="admin.professors-add"><span>Add Professors</span></a></li>
     <li ui-sref-active="active"><a ui-sref="admin.professors"><span>List Professors</span></a></li>
