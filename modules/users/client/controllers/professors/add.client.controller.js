@@ -5,13 +5,15 @@
     .module('users')
     .controller('AddProfessorsController', AddProfessorsController);
 
-  AddProfessorsController.$inject = ['$scope', '$http', 'Notification', 'PapaParse'];
+  AddProfessorsController.$inject = ['$scope', '$http', 'Notification', 'PapaParse', 'DepartmentsService', 'ProfessorsService', 'Authentication'];
 
 
-  function AddProfessorsController($scope, $http, Notification, PapaParse) {
+  function AddProfessorsController($scope, $http, Notification, PapaParse, DepartmentsService, ProfessorsService, Authentication) {
     var vm = this;
     var linesParsed = 0;
+    vm.authentication = Authentication;
     vm.department = undefined;
+    vm.departments = DepartmentsService.query();
     vm.csvFiles = {};
 
     vm.parseAndImport = function() {
@@ -44,20 +46,26 @@
         // Skip header
         return;
       }
-      var record = {
-        firstName: results.data[0][0],
-        lastName: results.data[0][1],
-        department: vm.department,
-        email: results.data[0][2],
-        username: results.data[0][3]
-      };
-      $http.post('/api/professors/add', record).then(function(response) {
-        // success
-        console.log(response);
-      },
-      function(response) {
-        console.log(response);
-        Notification.error('Cannot save the record ' + record.firstName);
+      // var record = {
+      //   firstName: results.data[0][0],
+      //   lastName: results.data[0][1],
+      //   department: vm.department,
+      //   email: results.data[0][2],
+      //   username: results.data[0][3]
+      // };
+      var professor = new ProfessorsService();
+      professor.firstName = results.data[0][0];
+      professor.lastName = results.data[0][1];
+      professor.department = vm.department;
+      professor.email = results.data[0][2];
+      professor.username = results.data[0][3];
+      // $http.post('/api/professors/add', record).then(function(response) {
+      // },
+      // function(response) {
+      //   Notification.error('Cannot save the record ' + record.firstName);
+      // });
+      professor.$save(function(res) {}, function() {
+        Notification.error('Cannot save the record ' + professor.firstName);
       });
     }
   }

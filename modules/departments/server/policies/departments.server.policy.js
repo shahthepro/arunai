@@ -9,36 +9,26 @@ var acl = require('acl');
 acl = new acl(new acl.memoryBackend());
 
 /**
- * Invoke Admin Permissions
+ * Invoke Departments Permissions
  */
 exports.invokeRolesPolicies = function () {
   acl.allow([{
-    roles: ['hod', 'admin'],
+    roles: ['admin'],
     allows: [{
-      resources: '/api/professors',
+      resources: '/api/departments',
       permissions: '*'
     }, {
-      resources: '/api/professors/:userId',
+      resources: '/api/departments/:departmentId',
       permissions: '*'
-    }]
-  }, {
-    roles: ['professor', 'student'],
-    allows: [{
-      resources: '/api/professors',
-      permissions: 'GET'
-    }, {
-      resources: '/api/professors/:userId',
-      permissions: 'GET'
     }]
   }]);
 };
 
 /**
- * Check If Admin Policy Allows
+ * Check If Departments Policy Allows
  */
 exports.isAllowed = function (req, res, next) {
   var roles = (req.user) ? req.user.roles : ['guest'];
-
   // Check for user roles
   acl.areAnyRolesAllowed(roles, req.route.path, req.method.toLowerCase(), function (err, isAllowed) {
     if (err) {

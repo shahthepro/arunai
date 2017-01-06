@@ -1,0 +1,32 @@
+<div class="content-header">
+  <h1>{{vm.department._id ? 'Edit Department' : 'New Department'}}</h1>
+</div>
+<section class="content body">
+  <form name="vm.form.departmentForm" ng-submit="vm.save(vm.form.departmentForm.$valid)" novalidate>
+    <fieldset>
+      <div class="form-group" show-errors>
+        <label class="control-label" for="name">Name</label>
+        <input name="name" type="text" ng-model="vm.department.name" id="name" class="form-control" placeholder="Name" required>
+        <div ng-messages="vm.form.departmentForm.name.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Department name is required.</p>
+        </div>
+      </div>
+      <div class="form-group" show-errors>
+        <label class="control-label" for="code">Code</label>
+        <input name="code" type="text" ng-model="vm.department.code" id="code" class="form-control" placeholder="Code" required>
+        <div ng-messages="vm.form.departmentForm.code.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Department code is required.</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">{{vm.department._id ? 'Update' : 'Add'}} Department</button>
+        <button class="btn btn-danger" ng-click="vm.remove()">
+          <i class="glyphicon glyphicon-trash"></i> Delete
+        </button>
+      </div>
+      <div ng-show="vm.error" class="text-danger">
+        <strong ng-bind="vm.error"></strong>
+      </div>
+    </fieldset>
+  </form>
+</section>

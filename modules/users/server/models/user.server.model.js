@@ -112,9 +112,8 @@ var UserSchema = new Schema({
     required: 'Please provide at least one role'
   },
   department: {
-    type: String,
-    default: '',
-    required: 'Select a department'
+    type: Schema.ObjectId,
+    ref: 'Department'
   },
   userMeta: [{
     type: Schema.ObjectId,
