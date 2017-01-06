@@ -33,6 +33,7 @@
           if (Authentication.user !== null && typeof Authentication.user === 'object') {
             $state.transitionTo('forbidden');
           } else {
+            // $window.location.href = $state.href('authentication.signin', {}, { absolute: true });
             $state.go('authentication.signin').then(function () {
               // Record previous state
               storePreviousState(toState, toParams);

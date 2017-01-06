@@ -17,13 +17,29 @@ exports.add = function (req, res) {
 
   if (!req.user) {
     res.status(403).send({
-      message: 'You need to be logged in'
+      message: 'Unauthorized access'
     });
   }
-  // console.log('Request >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ', req.body);
 
-  res.status(200).send({
-    message: req.body
+  var user = new User(req.body);
+  // console.log('Request >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', req.body);
+  user.provider = 'local';
+  user.displayName = user.firstName + ' ' + user.lastName;
+  user.password = user.username + '#1PASS';
+  user.roles = ['professor'];
+  if (req.user.roles.indexOf('admin') === -1) {
+    user.department = req.user.department;
+  }
+
+  user.save(function (err) {
+    if (err) {
+      console.log(err);
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+
+    res.json(user);
   });
 
 //   // For security purposes only merge these parameters

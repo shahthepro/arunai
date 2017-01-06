@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('users')
+    .module('core')
     .directive('fileListBind', fileListBind);
 
   function fileListBind() {
