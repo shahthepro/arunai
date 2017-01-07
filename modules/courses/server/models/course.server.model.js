@@ -16,13 +16,20 @@ var CourseSchema = new Schema({
     required: 'Please fill Course name',
     trim: true
   },
-  created: {
-    type: Date,
-    default: Date.now
+  code: {
+    type: String,
+    default: '',
+    required: 'Please fill Course code',
+    trim: true
   },
-  user: {
+  department: {
     type: Schema.ObjectId,
-    ref: 'User'
+    ref: 'Department'
+  },
+  semester: {
+    type: Number,
+    required: 'Please fill the semester',
+    trim: true
   }
 });
 

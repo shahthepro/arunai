@@ -1,24 +1,46 @@
-<section>
-  <div class="page-header">
-    <h1>{{vm.course._id ? 'Edit Course' : 'New Course'}}</h1>
-  </div>
-  <div class="col-md-12">
-    <form name="vm.form.courseForm" class="form-horizontal" ng-submit="vm.save(vm.form.courseForm.$valid)" novalidate>
-      <fieldset>
-        <div class="form-group" show-errors>
-          <label class="control-label" for="name">Name</label>
-          <input name="name" type="text" ng-model="vm.course.name" id="name" class="form-control" placeholder="Name" required>
-          <div ng-messages="vm.form.courseForm.name.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Course name is required.</p>
-          </div>
+<div class="content-header">
+  <h1>{{vm.course._id ? 'Edit Course' : 'New Course'}}</h1>
+</div>
+<section class="content body">
+  <form name="vm.form.courseForm" ng-submit="vm.save(vm.form.courseForm.$valid)" novalidate>
+    <fieldset>
+      <div class="form-group" show-errors>
+        <label class="control-label" for="name">Name</label>
+        <input name="name" type="text" ng-model="vm.course.name" id="name" class="form-control" placeholder="Name" required>
+        <div ng-messages="vm.form.courseForm.name.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Course name is required.</p>
         </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-default">{{vm.course._id ? 'Update' : 'Create'}}</button>
+      </div>
+      <div class="form-group" show-errors>
+        <label class="control-label" for="code">Code</label>
+        <input name="code" type="text" ng-model="vm.course.code" id="code" class="form-control" placeholder="Code" required>
+        <div ng-messages="vm.form.courseForm.code.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Course code is required.</p>
         </div>
-        <div ng-show="vm.error" class="text-danger">
-          <strong ng-bind="vm.error"></strong>
+      </div>
+      <div ng-show="vm.authentication.user.roles .indexOf('admin') > -1" class="form-group">
+          <label for="department">Department</label>
+          <select class="form-control" ng-model="vm.course.department"> {{dept._id == vm.course.department._id}}
+            {{dept._id}} {{vm.course.department._id}}
+              <option ng-repeat="dept in vm.departments" value="{{dept._id}}" ng-selected="{{dept._id == vm.course.department._id}}">{{dept.name}}</option>
+          </select>
+      </div>
+      <div class="form-group" show-errors>
+        <label class="control-label" for="semester">Semester</label>
+        <input name="semester" type="number" min="1" max="8" ng-model="vm.course.semester" id="semester" class="form-control" placeholder="Semester" required>
+        <div ng-messages="vm.form.courseForm.semester.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Semester is required.</p>
         </div>
-      </fieldset>
-    </form>
-  </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">{{vm.course._id ? 'Update' : 'Add'}} Course</button>
+        <button class="btn btn-danger" ng-click="vm.remove()">
+          <i class="glyphicon glyphicon-trash"></i> Delete
+        </button>
+      </div>
+      <div ng-show="vm.error" class="text-danger">
+        <strong ng-bind="vm.error"></strong>
+      </div>
+    </fieldset>
+  </form>
 </section>

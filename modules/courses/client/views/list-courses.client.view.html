@@ -1,22 +1,25 @@
-<section>
-  <div class="page-header">
-    <h1>Courses</h1>
-  </div>
-  <div class="list-group">
-    <a ng-repeat="course in vm.courses"
-       ui-sref="courses.view({ courseId: course._id })"
+<div class="content-header">
+  <h1>Courses
+  <small ng-if="vm.courses.$resolved && !vm.courses.length" class="pull-right">
+    <a ui-sref="admin.courses.create" class="btn btn-xs btn-primary">Create a course</a>
+  </small></h1>
+</div>
+<section class="content body">
+  <ul class="list-group">
+    <li ng-repeat="course in vm.courses"
        class="list-group-item">
-      <small class="list-group-item-text">
-        Posted on
-        <span ng-bind="course.created | date:'mediumDate'"></span>
-        by
-        <span ng-if="course.user" ng-bind="course.user.displayName"></span>
-        <span ng-if="!course.user">Deleted User</span>
-      </small>
-      <h4 class="list-group-item-heading" ng-bind="course.name"></h4>
-    </a>
-  </div>
-  <div class="alert alert-warning text-center" ng-if="vm.courses.$resolved && !vm.courses.length">
-    No Courses yet, why don't you <a ui-sref="courses.create">create one</a>?
-  </div>
+      <h4 class="list-group-item-heading">
+        {{ course.name }}
+        <div class="btn-group btn-xs pull-right">
+          <a class="btn btn-primary"
+            ui-sref="admin.courses.edit({ courseId: course._id })">
+            <i class="glyphicon glyphicon-edit"></i> Edit
+          </a>
+        </div>
+      </h4>
+      <div class="list-group-item-content">
+        Code: {{ course.code }}, Semester: {{ course.department.semester }} Department: {{ course.department.name }}
+      </div>
+    </li>
+  </ul>
 </section>

@@ -6,12 +6,13 @@
     .module('courses')
     .controller('CoursesController', CoursesController);
 
-  CoursesController.$inject = ['$scope', '$state', '$window', 'Authentication', 'courseResolve'];
+  CoursesController.$inject = ['$scope', '$state', '$window', 'Authentication', 'courseResolve', 'DepartmentsService'];
 
-  function CoursesController ($scope, $state, $window, Authentication, course) {
+  function CoursesController ($scope, $state, $window, Authentication, course, DepartmentsService) {
     var vm = this;
 
     vm.authentication = Authentication;
+    vm.departments = DepartmentsService.query();
     vm.course = course;
     vm.error = null;
     vm.form = {};
@@ -21,7 +22,7 @@
     // Remove existing Course
     function remove() {
       if ($window.confirm('Are you sure you want to delete?')) {
-        vm.course.$remove($state.go('courses.list'));
+        vm.course.$remove($state.go('admin.courses.list'));
       }
     }
 
@@ -31,7 +32,6 @@
         $scope.$broadcast('show-errors-check-validity', 'vm.form.courseForm');
         return false;
       }
-
       // TODO: move create/update logic to service
       if (vm.course._id) {
         vm.course.$update(successCallback, errorCallback);
@@ -40,9 +40,7 @@
       }
 
       function successCallback(res) {
-        $state.go('courses.view', {
-          courseId: res._id
-        });
+        $state.go('admin.courses.list');
       }
 
       function errorCallback(res) {

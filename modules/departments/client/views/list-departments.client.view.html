@@ -1,7 +1,7 @@
 <div class="content-header">
   <h1>Departments
-  <small ng-if="vm.departments.$resolved && !vm.departments.length">
-    No Departments yet, why don't you <a ui-sref="admin.departments.create">create one</a>?
+  <small ng-if="vm.departments.$resolved && !vm.departments.length" class="pull-right">
+    <a ui-sref="admin.departments.create" class="btn btn-xs btn-primary">Create a department</a>
   </small></h1>
 </div>
 <section class="content body">

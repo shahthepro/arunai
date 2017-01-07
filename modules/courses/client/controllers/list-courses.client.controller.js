@@ -9,7 +9,6 @@
 
   function CoursesListController(CoursesService) {
     var vm = this;
-
     vm.courses = CoursesService.query();
   }
 }());

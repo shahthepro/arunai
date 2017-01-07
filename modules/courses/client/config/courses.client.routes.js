@@ -2,63 +2,52 @@
   'use strict';
 
   angular
-    .module('courses')
+    .module('courses.admin.routes')
     .config(routeConfig);
 
   routeConfig.$inject = ['$stateProvider'];
 
   function routeConfig($stateProvider) {
     $stateProvider
-      .state('courses', {
+      .state('admin.courses', {
         abstract: true,
         url: '/courses',
         template: '<ui-view/>'
       })
-      .state('courses.list', {
+      .state('admin.courses.list', {
         url: '',
-        templateUrl: 'modules/courses/client/views/list-courses.client.view.html',
+        templateUrl: '/modules/courses/client/views/list-courses.client.view.html',
         controller: 'CoursesListController',
         controllerAs: 'vm',
         data: {
+          roles: ['admin'],
           pageTitle: 'Courses List'
         }
       })
-      .state('courses.create', {
+      .state('admin.courses.create', {
         url: '/create',
-        templateUrl: 'modules/courses/client/views/form-course.client.view.html',
+        templateUrl: '/modules/courses/client/views/form-course.client.view.html',
         controller: 'CoursesController',
         controllerAs: 'vm',
         resolve: {
           courseResolve: newCourse
         },
         data: {
-          roles: ['user', 'admin'],
+          roles: ['admin'],
           pageTitle: 'Courses Create'
         }
       })
-      .state('courses.edit', {
+      .state('admin.courses.edit', {
         url: '/:courseId/edit',
-        templateUrl: 'modules/courses/client/views/form-course.client.view.html',
+        templateUrl: '/modules/courses/client/views/form-course.client.view.html',
         controller: 'CoursesController',
         controllerAs: 'vm',
         resolve: {
           courseResolve: getCourse
         },
         data: {
-          roles: ['user', 'admin'],
+          roles: ['admin'],
           pageTitle: 'Edit Course {{ courseResolve.name }}'
-        }
-      })
-      .state('courses.view', {
-        url: '/:courseId',
-        templateUrl: 'modules/courses/client/views/view-course.client.view.html',
-        controller: 'CoursesController',
-        controllerAs: 'vm',
-        resolve: {
-          courseResolve: getCourse
-        },
-        data: {
-          pageTitle: 'Course {{ courseResolve.name }}'
         }
       });
   }

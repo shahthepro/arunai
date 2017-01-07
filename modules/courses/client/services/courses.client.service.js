@@ -9,7 +9,7 @@
   CoursesService.$inject = ['$resource'];
 
   function CoursesService($resource) {
-    return $resource('api/courses/:courseId', {
+    return $resource('/api/courses/:courseId', {
       courseId: '@_id'
     }, {
       update: {

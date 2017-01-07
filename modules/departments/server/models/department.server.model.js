@@ -20,10 +20,6 @@ var DepartmentSchema = new Schema({
     type: String,
     required: 'Please fill a department code',
     unique: true
-  },
-  user: {
-    type: Schema.ObjectId,
-    ref: 'User'
   }
 });
 

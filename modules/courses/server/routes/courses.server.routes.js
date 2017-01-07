@@ -8,14 +8,14 @@ var coursesPolicy = require('../policies/courses.server.policy'),
 
 module.exports = function(app) {
   // Courses Routes
-  app.route('/api/courses').all(coursesPolicy.isAllowed)
+  app.route('/api/courses')
     .get(courses.list)
-    .post(courses.create);
+    .post(coursesPolicy.isAllowed, courses.create);
 
-  app.route('/api/courses/:courseId').all(coursesPolicy.isAllowed)
+  app.route('/api/courses/:courseId')
     .get(courses.read)
-    .put(courses.update)
-    .delete(courses.delete);
+    .put(coursesPolicy.isAllowed, courses.update)
+    .delete(coursesPolicy.isAllowed, courses.delete);
 
   // Finish by binding the Course middleware
   app.param('courseId', courses.courseByID);

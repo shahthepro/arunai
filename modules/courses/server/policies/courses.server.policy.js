@@ -21,24 +21,6 @@ exports.invokeRolesPolicies = function () {
       resources: '/api/courses/:courseId',
       permissions: '*'
     }]
-  }, {
-    roles: ['user'],
-    allows: [{
-      resources: '/api/courses',
-      permissions: ['get', 'post']
-    }, {
-      resources: '/api/courses/:courseId',
-      permissions: ['get']
-    }]
-  }, {
-    roles: ['guest'],
-    allows: [{
-      resources: '/api/courses',
-      permissions: ['get']
-    }, {
-      resources: '/api/courses/:courseId',
-      permissions: ['get']
-    }]
   }]);
 };
 
@@ -47,12 +29,6 @@ exports.invokeRolesPolicies = function () {
  */
 exports.isAllowed = function (req, res, next) {
   var roles = (req.user) ? req.user.roles : ['guest'];
-
-  // If an Course is being processed and the current user created it then allow any manipulation
-  if (req.course && req.user && req.course.user && req.course.user.id === req.user.id) {
-    return next();
-  }
-
   // Check for user roles
   acl.areAnyRolesAllowed(roles, req.route.path, req.method.toLowerCase(), function (err, isAllowed) {
     if (err) {

@@ -76,7 +76,7 @@ exports.delete = function(req, res) {
  * List of Departments
  */
 exports.list = function(req, res) {
-  Department.find().sort('-created').exec(function(err, departments) {
+  Department.find().sort('name').exec(function(err, departments) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)

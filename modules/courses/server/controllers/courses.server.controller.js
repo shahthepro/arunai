@@ -14,8 +14,7 @@ var path = require('path'),
  */
 exports.create = function(req, res) {
   var course = new Course(req.body);
-  course.user = req.user;
-
+  console.log(course);
   course.save(function(err) {
     if (err) {
       return res.status(400).send({
@@ -34,10 +33,6 @@ exports.read = function(req, res) {
   // convert mongoose document to JSON
   var course = req.course ? req.course.toJSON() : {};
 
-  // Add a custom field to the Article, for determining if the current User is the "owner".
-  // NOTE: This field is NOT persisted to the database, since it doesn't exist in the Article model.
-  course.isCurrentUserOwner = req.user && course.user && course.user._id.toString() === req.user._id.toString();
-
   res.jsonp(course);
 };
 
@@ -46,7 +41,7 @@ exports.read = function(req, res) {
  */
 exports.update = function(req, res) {
   var course = req.course;
-
+  console.log(course);
   course = _.extend(course, req.body);
 
   course.save(function(err) {
@@ -81,7 +76,7 @@ exports.delete = function(req, res) {
  * List of Courses
  */
 exports.list = function(req, res) {
-  Course.find().sort('-created').populate('user', 'displayName').exec(function(err, courses) {
+  Course.find().sort('-created').populate('department').exec(function(err, courses) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
@@ -103,7 +98,7 @@ exports.courseByID = function(req, res, next, id) {
     });
   }
 
-  Course.findById(id).populate('user', 'displayName').exec(function (err, course) {
+  Course.findById(id).exec(function (err, course) {
     if (err) {
       return next(err);
     } else if (!course) {
