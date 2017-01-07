@@ -5,20 +5,19 @@
     .module('users.services')
     .factory('UserMetaService', UserMetaService);
 
-  UserMetaService.$inject = ['Authentication'];
+  UserMetaService.$inject = ['Authentication', '$resource'];
 
-  function UserMetaService(Authentication) {
+  function UserMetaService(Authentication, $resource) {
     // TODO: getData and postData
     var auth = Authentication;
-
-    function getData(metaKey, forUser = undefined, fallback = undefined) {
-      var user = (forUser === undefined) ? auth.user : forUser;
-      if (auth.user === undefined) {
-        // User not logged in
-        return undefined;
+    return $resource('/api/users/:userId/meta/:metaKey', {
+      userId: '@_id',
+      metaKey: '@_id'
+    }, {
+      update: {
+        method: 'PUT'
       }
-      return undefined;
-    }
+    });
   }
 
 }());

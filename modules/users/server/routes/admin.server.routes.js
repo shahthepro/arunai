@@ -4,7 +4,8 @@
  * Module dependencies
  */
 var adminPolicy = require('../policies/admin.server.policy'),
-  admin = require('../controllers/admin.server.controller');
+  admin = require('../controllers/admin.server.controller'),
+  metadata = require('../controllers/metadata.server.controller');
 
 module.exports = function (app) {
   // User route registration first. Ref: #713
@@ -20,6 +21,16 @@ module.exports = function (app) {
     .put(adminPolicy.isAllowed, admin.update)
     .delete(adminPolicy.isAllowed, admin.delete);
 
+  app.route('/api/users/:userId/metadata')
+    .get(metadata.list)
+    .post(metadata.add);
+
+  app.route('/api/users/:userId/metadata/:metaKey')
+    .get(metadata.read)
+    .put(metadata.update)
+    .delete(metadata.delete);
+
   // Finish by binding the user middleware
   app.param('userId', admin.userByID);
+  app.param('metaKey', metadata.metadataByKey);
 };

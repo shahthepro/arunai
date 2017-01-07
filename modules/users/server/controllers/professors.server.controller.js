@@ -76,8 +76,6 @@ exports.update = function (req, res) {
   user.roles = req.body.roles;
   user.email = req.body.email;
   user.username = req.body.username;
-  console.log('before save >>>>>>>>>>>>>>>>>>>>>>>>>>>>> ', user);
-  console.log('requested model >>>>>>>>>>>>>>>>>>>>>>>>>>>>> ', req.body);
   user.save(function (err) {
     if (err) {
       return res.status(422).send({
