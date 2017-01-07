@@ -1,0 +1,25 @@
+<div class="content-header">
+  <h1>Students
+  <small ng-if="vm.students.$resolved && !vm.students.length">
+    No Students yet, why don't you <a ui-sref="admin.students.add">add one</a>?
+  </small></h1>
+</div>
+<section class="content body">
+  <ul class="list-group">
+    <li ng-repeat="student in vm.students"
+       class="list-group-item">
+      <h4 class="list-group-item-heading">
+        {{ student.displayName }}
+        <div class="btn-group btn-xs pull-right">
+          <a class="btn btn-primary"
+            ui-sref="admin.students.edit({ userId: student._id })">
+            <i class="glyphicon glyphicon-edit"></i> Edit
+          </a>
+        </div>
+      </h4>
+      <div class="list-group-item-content">
+        {{ student.email }}
+      </div>
+    </li>
+  </ul>
+</section>

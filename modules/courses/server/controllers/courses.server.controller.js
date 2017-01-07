@@ -76,7 +76,7 @@ exports.delete = function(req, res) {
  * List of Courses
  */
 exports.list = function(req, res) {
-  Course.find().sort('-created').populate('department').exec(function(err, courses) {
+  Course.find().sort('name').populate('department').exec(function(err, courses) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)

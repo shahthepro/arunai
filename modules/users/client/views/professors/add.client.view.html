@@ -3,7 +3,7 @@
 </div>
 <section class="content body">
     <form ng-submit="vm.parseAndImport()">
-        <div ng-show="vm.authentication.user.roles .indexOf('admin') > -1" class="form-group">
+        <div ng-show="vm.authentication.user.roles.indexOf('admin') > -1" class="form-group">
             <label for="department">Department</label>
             <select class="form-control" ng-model="vm.department">
                 <option ng-repeat="dept in vm.departments" value="{{dept._id}}">{{dept.name}}</option>

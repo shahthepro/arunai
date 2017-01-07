@@ -5,8 +5,7 @@ module.exports = function (app) {
   var professorsPolicy = require('../policies/professors.server.policy'),
     professors = require('../controllers/professors.server.controller');
 
-  // Setting up the users profile api
-  // app.route('/api/professors').get(professors.list);
+  // Setting up the professor api
   app.route('/api/professors')
     .get(professors.list)
     .post(professorsPolicy.isAllowed, professors.add);

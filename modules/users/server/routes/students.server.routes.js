@@ -2,10 +2,16 @@
 
 module.exports = function (app) {
   // User Routes
-  var students = require('../controllers/students/students.server.controller');
+  var studentsPolicy = require('../policies/students.server.policy'),
+    students = require('../controllers/students.server.controller');
 
-  // Setting up the users profile api
-  app.route('/api/students').get(students.list);
-  app.route('/api/students/add').post(students.add);
+  // Setting up the students api
+  app.route('/api/students')
+    .get(students.list)
+    .post(studentsPolicy.isAllowed, students.add);
 
+  app.route('/api/students/:userId')
+    .get(students.read)
+    .put(studentsPolicy.isAllowed, students.update)
+    .delete(studentsPolicy.isAllowed, students.delete);
 };

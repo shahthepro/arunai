@@ -1,19 +1,20 @@
 <div class="content-header">
-    <h1>Add Students</h1>
+    <h1>Add Students<small>Import from CSV</small></h1>
 </div>
 <section class="content body">
-    <form name="vm.addForm" ng-submit="vm.uploadStudentsData()" novalidate>
-        <fieldset>
-            <div class="form-group" show-errors>
-                <label for="csvFile">Select a CSV file</label>
-                <input type="file" nv-file-select uploader="vm.uploader" id="csvFile" name="csvFile" class="form-control" ng-model="vm.csvFile" required>
-                <div ng-messages="vm.addForm.csvFile.$error" role="alert">
-                    <p class="help-block error-text" ng-message="required">CSV file is required.</p>
-                </div>
-            </div>
-            <div class="text-center form-group">
-                <button type="submit" class="btn btn-success">Add Students</button>
-            </div>
-        </fieldset>
+    <form ng-submit="vm.parseAndImport()">
+        <div ng-show="vm.authentication.user.roles.indexOf('admin') > -1" class="form-group">
+            <label for="department">Department</label>
+            <select class="form-control" ng-model="vm.department">
+                <option ng-repeat="dept in vm.departments" value="{{dept._id}}">{{dept.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="csvFile">CSV File</label>
+            <input class="form-control" type="file" accept=".csv" name="csvFile" file-list-bind="vm.csvFiles">
+        </div>
+        <div class="form-group">
+            <button ng-disabled="!vm.csvFiles.length" type="submit" class="btn btn-success">Import Data</button>
+        </div>
     </form>
 </section>

@@ -5,12 +5,13 @@
     .module('users')
     .controller('EditProfessorsController', EditProfessorsController);
 
-  EditProfessorsController.$inject = ['$scope', '$state', '$window', 'Authentication', 'userResolve'];
+  EditProfessorsController.$inject = ['$scope', '$state', '$window', 'Authentication', 'userResolve', 'DepartmentsService'];
 
-  function EditProfessorsController ($scope, $state, $window, Authentication, professor) {
+  function EditProfessorsController ($scope, $state, $window, Authentication, professor, DepartmentsService) {
     var vm = this;
 
     vm.authentication = Authentication;
+    vm.departments = DepartmentsService.query();
     vm.professor = professor;
     vm.error = null;
     vm.form = {};
