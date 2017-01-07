@@ -1,0 +1,46 @@
+<div class="content-header">
+  <h1>{{vm.professor._id ? 'Edit Professor' : 'New Professor'}}</h1>
+</div>
+<section class="content body">
+  <form name="vm.form.professorForm" ng-submit="vm.save(vm.form.professorForm.$valid)" novalidate>
+    <fieldset>
+      <div class="form-group" show-errors>
+        <label class="control-label" for="firstName">First Name</label>
+        <input name="name" type="text" ng-model="vm.professor.firstName" id="firstName" class="form-control" placeholder="First Name" required>
+        <div ng-messages="vm.form.professorForm.firstName.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">First name is required.</p>
+        </div>
+      </div>
+      <div class="form-group" show-errors>
+        <label class="control-label" for="lastName">Last Name</label>
+        <input name="name" type="text" ng-model="vm.professor.lastName" id="lastName" class="form-control" placeholder="Last Name" required>
+        <div ng-messages="vm.form.professorForm.lastName.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Last name is required.</p>
+        </div>
+      </div>
+      <div class="form-group" show-errors>
+        <label class="control-label" for="email">Email</label>
+        <input name="name" type="text" ng-model="vm.professor.email" id="email" class="form-control" placeholder="Email" required>
+        <div ng-messages="vm.form.professorForm.email.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Email is required.</p>
+        </div>
+      </div>
+      <div class="form-group" show-errors>
+        <label class="control-label" for="username">Username</label>
+        <input name="name" type="text" ng-model="vm.professor.username" id="username" class="form-control" placeholder="Username" required>
+        <div ng-messages="vm.form.professorForm.username.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Username is required.</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">{{vm.professor._id ? 'Update' : 'Add'}} Professor</button>
+        <button class="btn btn-danger" ng-click="vm.remove()">
+          <i class="glyphicon glyphicon-trash"></i> Delete
+        </button>
+      </div>
+      <div ng-show="vm.error" class="text-danger">
+        <strong ng-bind="vm.error"></strong>
+      </div>
+    </fieldset>
+  </form>
+</section>

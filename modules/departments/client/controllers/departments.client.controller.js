@@ -45,7 +45,6 @@
 
       function errorCallback(res) {
         vm.error = res.data.message;
-        return false;
       }
     }
   }

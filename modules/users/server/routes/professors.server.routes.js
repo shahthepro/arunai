@@ -7,6 +7,12 @@ module.exports = function (app) {
 
   // Setting up the users profile api
   // app.route('/api/professors').get(professors.list);
-  app.route('/api/professors').get(professors.list).post(professorsPolicy.isAllowed, professors.add);
+  app.route('/api/professors')
+    .get(professors.list)
+    .post(professorsPolicy.isAllowed, professors.add);
 
+  app.route('/api/professors/:userId')
+    .get(professors.read)
+    .put(professorsPolicy.isAllowed, professors.update)
+    .delete(professorsPolicy.isAllowed, professors.delete);
 };
