@@ -6,21 +6,21 @@
     <fieldset>
       <div class="form-group" show-errors>
         <label class="control-label" for="firstName">First Name</label>
-        <input name="name" type="text" ng-model="vm.student.firstName" id="firstName" class="form-control" placeholder="First Name" required>
+        <input name="firstName" type="text" ng-model="vm.student.firstName" id="firstName" class="form-control" placeholder="First Name" required>
         <div ng-messages="vm.form.studentForm.firstName.$error" role="alert">
           <p class="help-block error-text" ng-message="required">First name is required.</p>
         </div>
       </div>
       <div class="form-group" show-errors>
         <label class="control-label" for="lastName">Last Name</label>
-        <input name="name" type="text" ng-model="vm.student.lastName" id="lastName" class="form-control" placeholder="Last Name" required>
+        <input name="lastName" type="text" ng-model="vm.student.lastName" id="lastName" class="form-control" placeholder="Last Name" required>
         <div ng-messages="vm.form.studentForm.lastName.$error" role="alert">
           <p class="help-block error-text" ng-message="required">Last name is required.</p>
         </div>
       </div>
       <div ng-show="vm.authentication.user.roles.indexOf('admin') > -1" class="form-group">
           <label for="department">Department</label>
-          <select class="form-control" ng-model="vm.student.department">
+          <select class="form-control" ng-model="vm.student.department" ng-required="vm.authentication.user.roles.indexOf('admin') > -1">
               <option ng-repeat="dept in vm.departments" value="{{dept._id}}" ng-selected="{{dept._id == vm.student.department._id}}">{{dept.name}}</option>
           </select>
         <div ng-messages="vm.form.studentForm.code.$error" role="alert">
@@ -29,21 +29,35 @@
       </div>
       <div class="form-group" show-errors>
         <label class="control-label" for="regno">Registration Number</label>
-        <input name="name" type="text" ng-model="vm.student.metaData['regno']" id="regno" class="form-control" placeholder="Registration number" required>
+        <input name="regno" type="text" ng-model="vm.student.metaData.regno" id="regno" class="form-control" placeholder="Registration number" required>
         <div ng-messages="vm.form.studentForm.regno.$error" role="alert">
           <p class="help-block error-text" ng-message="required">Registration number is required.</p>
         </div>
       </div>
       <div class="form-group" show-errors>
+        <label class="control-label" for="batch">Batch (Year of completion)</label>
+        <input name="batch" type="number" ng-model="vm.student.metaData.batch" id="batch" class="form-control" placeholder="Batch" min="1990" max="2100" required>
+        <div ng-messages="vm.form.studentForm.batch.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Batch is required.</p>
+        </div>
+      </div>
+      <div class="form-group" show-errors>
+        <label class="control-label" for="semester">Semester</label>
+        <input name="semester" type="number" ng-model="vm.student.metaData.semester" id="semester" class="form-control" placeholder="Semester" min="1" max="8" required>
+        <div ng-messages="vm.form.studentForm.semester.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Semester is required.</p>
+        </div>
+      </div>
+      <div class="form-group" show-errors>
         <label class="control-label" for="email">Email</label>
-        <input name="name" type="text" ng-model="vm.student.email" id="email" class="form-control" placeholder="Email" required>
+        <input name="email" type="text" ng-model="vm.student.email" id="email" class="form-control" placeholder="Email" required>
         <div ng-messages="vm.form.studentForm.email.$error" role="alert">
           <p class="help-block error-text" ng-message="required">Email is required.</p>
         </div>
       </div>
       <div class="form-group" show-errors>
         <label class="control-label" for="username">Username</label>
-        <input name="name" type="text" ng-model="vm.student.username" id="username" class="form-control" placeholder="Username" required>
+        <input name="username" type="text" ng-model="vm.student.username" id="username" class="form-control" placeholder="Username" required>
         <div ng-messages="vm.form.studentForm.username.$error" role="alert">
           <p class="help-block error-text" ng-message="required">Username is required.</p>
         </div>

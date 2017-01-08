@@ -59,13 +59,16 @@
       student.department = vm.department;
       student.email = results.data[0][2];
       student.username = results.data[0][3];
+      student.metaData.regno = results.data[0][4];
+      student.metaData.batch = results.data[0][5];
+      student.metaData.semester = results.data[0][6];
       // $http.post('/api/students/add', record).then(function(response) {
       // },
       // function(response) {
       //   Notification.error('Cannot save the record ' + record.firstName);
       // });
       student.$save(function(res) {}, function() {
-        Notification.error('Cannot save the record ' + student.firstName);
+        Notification.error('Cannot save the record ' + student.metaData.regno);
       });
     }
   }

@@ -4,7 +4,8 @@
  * Module dependencies
  */
 var coursesPolicy = require('../policies/courses.server.policy'),
-  courses = require('../controllers/courses.server.controller');
+  courses = require('../controllers/courses.server.controller'),
+  courseAssignments = require('../controllers/course-assignments.server.controller');
 
 module.exports = function(app) {
   // Courses Routes
@@ -17,6 +18,16 @@ module.exports = function(app) {
     .put(coursesPolicy.isAllowed, courses.update)
     .delete(coursesPolicy.isAllowed, courses.delete);
 
+  app.route('/api/assignments')
+    .get(courseAssignments.list)
+    .post(coursesPolicy.isAllowed, courseAssignments.create);
+
+  app.route('/api/assignments/:assignmentId')
+    .get(courseAssignments.read)
+    .put(coursesPolicy.isAllowed, courseAssignments.update)
+    .delete(coursesPolicy.isAllowed, courseAssignments.delete);
+
   // Finish by binding the Course middleware
   app.param('courseId', courses.courseByID);
+  app.param('assignmentId', courseAssignments.assignmentByID);
 };

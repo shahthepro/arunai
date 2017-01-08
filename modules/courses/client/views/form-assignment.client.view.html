@@ -1,0 +1,43 @@
+<div class="content-header">
+  <h1>{{vm.assignment._id ? 'Edit Assignment' : 'New Assignment'}}</h1>
+</div>
+<section class="content body">
+  <form name="vm.form.assignmentForm" ng-submit="vm.save(vm.form.assignmentForm.$valid)" novalidate>
+    <fieldset>
+      <div ng-show="vm.authentication.user.roles.indexOf('admin') > -1" class="form-group">
+        <label for="course">Assign Course</label>
+        <select class="form-control" ng-model="vm.assignment.course" required>
+            <option ng-repeat="course in vm.courses" value="{{course._id}}" ng-selected="{{course._id == vm.assignment.course._id}}">{{course.name}}</option>
+        </select>
+        <div ng-messages="vm.form.assignmentForm.course.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Course is required.</p>
+        </div>
+      </div>
+      <div ng-show="vm.authentication.user.roles.indexOf('admin') > -1" class="form-group">
+        <label for="professor">To Professor</label>
+        <select class="form-control" ng-model="vm.assignment.professor" required>
+            <option ng-repeat="professor in vm.professors" value="{{professor._id}}" ng-selected="{{professor._id == vm.assignment.professor._id}}">{{professor.displayName}} ({{professor.department.name}})</option>
+        </select>
+        <div ng-messages="vm.form.assignmentForm.professor.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Professor is required.</p>
+        </div>
+      </div>
+      <div class="form-group" show-errors>
+        <label class="control-label" for="batch">For the Batch</label>
+        <input name="batch" type="number" min="1990" max="2100" ng-model="vm.assignment.batch" id="batch" class="form-control" placeholder="Batch" required>
+        <div ng-messages="vm.form.assignmentForm.batch.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Batch is required.</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">{{vm.assignment._id ? 'Update' : 'Add'}} Assignment</button>
+        <button ng-show="vm.assignment._id" class="btn btn-danger" ng-click="vm.remove()">
+          <i class="glyphicon glyphicon-trash"></i> Delete
+        </button>
+      </div>
+      <div ng-show="vm.error" class="text-danger">
+        <strong ng-bind="vm.error"></strong>
+      </div>
+    </fieldset>
+  </form>
+</section>

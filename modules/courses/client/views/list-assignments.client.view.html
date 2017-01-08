@@ -1,0 +1,26 @@
+<div class="content-header">
+  <h1>Assignments
+  <small ng-if="vm.assignments.$resolved && !vm.assignments.length" class="pull-right">
+    <a ui-sref="admin.assignments.create" class="btn btn-xs btn-primary">Create a assignment</a>
+  </small></h1>
+</div>
+<section class="content body">
+  <ul class="list-group">
+    <li ng-repeat="assignment in vm.assignments"
+       class="list-group-item">
+      <h4 class="list-group-item-heading">
+        {{assignment.course.code}} - {{ assignment.course.name }}
+        <div class="btn-group btn-xs pull-right">
+          <a class="btn btn-primary"
+            ui-sref="admin.assignments.edit({ assignmentId: assignment._id })">
+            <i class="glyphicon glyphicon-edit"></i> Edit
+          </a>
+        </div>
+      </h4>
+      <div class="list-group-item-content">
+          <span class="label label-primary">Professor: {{ assignment.professor.displayName }}</span>
+          <span class="label label-primary">Batch: {{ assignment.batch }}</span>
+      </div>
+    </li>
+  </ul>
+</section>

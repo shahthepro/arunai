@@ -11,102 +11,101 @@ var path = require('path'),
   _ = require('lodash');
 
 /**
- * Create a Course
+ * Create a CourseAssignment
  */
 exports.create = function(req, res) {
-  var course = new Course(req.body);
-  course.save(function(err) {
+  var assignment = new CourseAssignment(req.body);
+  assignment.save(function(err) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.jsonp(course);
+      res.jsonp(assignment);
     }
   });
 };
 
 /**
- * Show the current Course
+ * Show the current CourseAssignment
  */
 exports.read = function(req, res) {
   // convert mongoose document to JSON
-  var course = req.course ? req.course.toJSON() : {};
+  var assignment = req.assignment ? req.assignment.toJSON() : {};
 
-  res.jsonp(course);
+  res.jsonp(assignment);
 };
 
 /**
- * Update a Course
+ * Update a CourseAssignment
  */
 exports.update = function(req, res) {
-  var course = req.course;
-  console.log(course);
-  course = _.extend(course, req.body);
+  var assignment = req.assignment;
+  assignment = _.extend(assignment, req.body);
 
-  course.save(function(err) {
+  assignment.save(function(err) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.jsonp(course);
+      res.jsonp(assignment);
     }
   });
 };
 
 /**
- * Delete an Course
+ * Delete an CourseAssignment
  */
 exports.delete = function(req, res) {
-  var course = req.course;
+  var assignment = req.assignment;
 
-  course.remove(function(err) {
+  assignment.remove(function(err) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.jsonp(course);
+      res.jsonp(assignment);
     }
   });
 };
 
 /**
- * List of Courses
+ * List of CourseAssignments
  */
 exports.list = function(req, res) {
-  Course.find().sort('name').populate('department').exec(function(err, courses) {
+  CourseAssignment.find().sort('name').populate('course').populate('professor').exec(function(err, courseAssignments) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.jsonp(courses);
+      res.jsonp(courseAssignments);
     }
   });
 };
 
 /**
- * Course middleware
+ * CourseAssignment middleware
  */
-exports.courseByID = function(req, res, next, id) {
+exports.assignmentByID = function(req, res, next, id) {
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).send({
-      message: 'Course is invalid'
+      message: 'CourseAssignment is invalid'
     });
   }
 
-  Course.findById(id).exec(function (err, course) {
+  CourseAssignment.findById(id).populate('course').populate('professor').exec(function (err, assignment) {
     if (err) {
       return next(err);
-    } else if (!course) {
+    } else if (!assignment) {
       return res.status(404).send({
-        message: 'No Course with that identifier has been found'
+        message: 'No Assignment with that identifier has been found'
       });
     }
-    req.course = course;
+    req.assignment = assignment;
     next();
   });
 };

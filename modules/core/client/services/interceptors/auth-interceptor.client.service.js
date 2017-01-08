@@ -29,6 +29,7 @@
             break;
           case 403:
             $injector.get('$state').transitionTo('forbidden');
+            // Notification.error({ message: 'You are not authorized to do that', title: 'Forbidden', delay: 5000 });
             break;
           case 404:
             $injector.get('$state').go('not-found', { message: rejection.data.message });
