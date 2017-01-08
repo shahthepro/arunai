@@ -6,6 +6,8 @@
 var path = require('path'),
   mongoose = require('mongoose'),
   User = mongoose.model('User'),
+  Course = mongoose.model('Course'),
+  CourseAssignment = mongoose.model('CourseAssignment'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
@@ -103,5 +105,21 @@ exports.delete = function (req, res) {
     }
 
     res.json(user);
+  });
+};
+
+/**
+ * Get assigned courses
+ */
+exports.getAssignedCourses = function(req, res) {
+  var user = req.model;
+  CourseAssignment.find({ professor: user._id }).sort('name').populate('course').exec(function(err, courses) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.jsonp(courses);
+    }
   });
 };

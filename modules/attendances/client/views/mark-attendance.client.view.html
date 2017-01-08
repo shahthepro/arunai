@@ -1,0 +1,62 @@
+<div class="content-header">
+  <h1>Mark Attendance
+  <small ng-if="vm.attendances.$resolved && !vm.attendances.length" class="pull-right">
+    <a ui-sref="admin.attendances.create" class="btn btn-xs btn-primary">Create a attendance</a>
+  </small></h1>
+</div>
+<section class="content body">
+  <div class="row">
+    <form name="vm.form.attendanceForm" ng-submit="vm.save(vm.form.attendanceForm.$valid)" novalidate>
+      <fieldset>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="course">Course</label>
+                <select class="form-control" ng-model="vm.course" required>
+                    <option ng-repeat="assignment in vm.assignments" value="{{assignment.course._id}}" ng-selected="{{assignment.course._id == vm.attendances.course._id}}">{{assignment.course.name}}</option>
+                </select>
+                <div ng-messages="vm.form.attendanceForm.course.$error" role="alert">
+                <p class="help-block error-text" ng-message="required">Course is required.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group" show-errors>
+            <label class="control-label" for="date">Date</label>
+            <input name="date" type="date" ng-model="vm.date" id="date" class="form-control" placeholder="Date" required>
+            <div ng-messages="vm.form.attendanceForm.date.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Date is required.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label">&nbsp;</label>
+            <div>
+                <button type="submit" class="btn btn-primary">Fetch Enrolled Students</button>
+            </div>
+          </div>
+          <div ng-show="vm.error" class="text-danger">
+            <strong ng-bind="vm.error"></strong>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <ul class="list-group">
+    <li ng-repeat="attendance in vm.attendances"
+       class="list-group-item">
+      <h4 class="list-group-item-heading">
+        {{ attendance.name }}
+        <div class="btn-group btn-xs pull-right">
+          <a class="btn btn-primary"
+            ui-sref="admin.attendances.edit({ attendanceId: attendance._id })">
+            <i class="glyphicon glyphicon-edit"></i> Edit
+          </a>
+        </div>
+      </h4>
+      <div class="list-group-item-content">
+        Code: {{ attendance.code }}
+      </div>
+    </li>
+  </ul>
+</section>

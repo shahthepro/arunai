@@ -1,0 +1,25 @@
+<div class="content-header">
+  <h1>Attendances
+  <small ng-if="vm.attendances.$resolved && !vm.attendances.length" class="pull-right">
+    <a ui-sref="admin.attendances.create" class="btn btn-xs btn-primary">Create a attendance</a>
+  </small></h1>
+</div>
+<section class="content body">
+  <ul class="list-group">
+    <li ng-repeat="attendance in vm.attendances"
+       class="list-group-item">
+      <h4 class="list-group-item-heading">
+        {{ attendance.name }}
+        <div class="btn-group btn-xs pull-right">
+          <a class="btn btn-primary"
+            ui-sref="admin.attendances.edit({ attendanceId: attendance._id })">
+            <i class="glyphicon glyphicon-edit"></i> Edit
+          </a>
+        </div>
+      </h4>
+      <div class="list-group-item-content">
+        Code: {{ attendance.code }}
+      </div>
+    </li>
+  </ul>
+</section>

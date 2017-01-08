@@ -13,6 +13,10 @@
     }, {
       update: {
         method: 'PUT'
+      },
+      assignedCourses: {
+        method: 'GET',
+        url: '/api/professors/:userId/assigned'
       }
     });
   }

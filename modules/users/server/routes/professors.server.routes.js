@@ -14,4 +14,7 @@ module.exports = function (app) {
     .get(professors.read)
     .put(professorsPolicy.isAllowed, professors.update)
     .delete(professorsPolicy.isAllowed, professors.delete);
+
+  app.route('/api/professors/:userId/assigned')
+    .get(professors.getAssignedCourses);
 };
