@@ -18,7 +18,9 @@
         </div>
       </h4>
       <div class="list-group-item-content">
-        Code: {{ course.code }}, Semester: {{ course.department.semester }} Department: {{ course.department.name }}
+          <span class="label label-primary">Code: {{ course.code }}</span>
+          <span class="label label-primary">Semester: {{ course.semester }}</span>
+          <span class="label label-primary">Department: {{ course.department.name }}</span>
       </div>
     </li>
   </ul>

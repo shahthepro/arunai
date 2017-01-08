@@ -115,10 +115,9 @@ var UserSchema = new Schema({
     type: Schema.ObjectId,
     ref: 'Department'
   },
-  userMeta: [{
-    type: Schema.ObjectId,
-    ref: 'UserMeta'
-  }],
+  metaData: {
+    type: Schema.Types.Mixed
+  },
   verified: {
     type: Boolean,
     default: false

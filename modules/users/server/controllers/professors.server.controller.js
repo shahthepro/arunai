@@ -45,7 +45,7 @@ exports.add = function (req, res) {
  */
 exports.list = function (req, res) {
   // TODO dept wise filter
-  User.find({ roles: { $in: ['professor'] } }, '-salt -password -providerData').sort('displayName').populate('userMeta').populate('department').exec(function (err, users) {
+  User.find({ roles: { $in: ['professor'] } }, '-salt -password -providerData').sort('displayName').populate('department').exec(function (err, users) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
@@ -76,6 +76,8 @@ exports.update = function (req, res) {
   user.roles = req.body.roles;
   user.email = req.body.email;
   user.username = req.body.username;
+  user.metaData = req.body.metaData;
+  user.markModified('metaData');
   user.save(function (err) {
     if (err) {
       return res.status(422).send({

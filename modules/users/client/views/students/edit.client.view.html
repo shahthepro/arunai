@@ -28,6 +28,13 @@
         </div>
       </div>
       <div class="form-group" show-errors>
+        <label class="control-label" for="regno">Registration Number</label>
+        <input name="name" type="text" ng-model="vm.student.metaData['regno']" id="regno" class="form-control" placeholder="Registration number" required>
+        <div ng-messages="vm.form.studentForm.regno.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Registration number is required.</p>
+        </div>
+      </div>
+      <div class="form-group" show-errors>
         <label class="control-label" for="email">Email</label>
         <input name="name" type="text" ng-model="vm.student.email" id="email" class="form-control" placeholder="Email" required>
         <div ng-messages="vm.form.studentForm.email.$error" role="alert">
