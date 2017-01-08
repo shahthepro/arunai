@@ -20,7 +20,7 @@
       });
     });
     vm.fetchEnrolledStudents = function() {
-      $http.get('/api/professors/' + result.data.id + '/assigned').then(function(result) {
+      $http.get('/api/courses/' + vm.course + '/students').then(function(result) {
         vm.assignments = result.data;
       });
     };
