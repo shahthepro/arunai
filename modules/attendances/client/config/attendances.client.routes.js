@@ -30,7 +30,7 @@
         controller: 'AttendancesListController',
         controllerAs: 'vm',
         data: {
-          roles: ['admin'],
+          roles: ['professor', 'admin'],
           pageTitle: 'Attendances List'
         }
       })
@@ -43,7 +43,7 @@
           attendanceResolve: newAttendance
         },
         data: {
-          roles: ['admin'],
+          roles: ['professor', 'admin'],
           pageTitle: 'Attendances Create'
         }
       })
@@ -56,7 +56,7 @@
           attendanceResolve: getAttendance
         },
         data: {
-          roles: ['admin'],
+          roles: ['professor', 'admin'],
           pageTitle: 'Edit Attendance {{ attendanceResolve.name }}'
         }
       });

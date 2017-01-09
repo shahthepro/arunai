@@ -18,6 +18,9 @@ module.exports = function(app) {
     .put(coursesPolicy.isAllowed, courses.update)
     .delete(coursesPolicy.isAllowed, courses.delete);
 
+  // app.route('/api/courses/:courseId/students')
+  //   .get(courses.getEnrolledStudents);
+
   app.route('/api/assignments')
     .get(courseAssignments.list)
     .post(coursesPolicy.isAllowed, courseAssignments.create);
