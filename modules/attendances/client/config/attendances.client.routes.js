@@ -14,16 +14,6 @@
         url: '/attendances',
         template: '<ui-view/>'
       })
-      .state('admin.attendances.mark', {
-        url: '',
-        templateUrl: '/modules/attendances/client/views/mark-attendance.client.view.html',
-        controller: 'MarkAttendanceController',
-        controllerAs: 'vm',
-        data: {
-          roles: ['professor', 'admin'],
-          pageTitle: 'Mark Attendance'
-        }
-      })
       .state('admin.attendances.list', {
         url: '',
         templateUrl: '/modules/attendances/client/views/list-attendances.client.view.html',
@@ -32,6 +22,19 @@
         data: {
           roles: ['professor', 'admin'],
           pageTitle: 'Attendances List'
+        }
+      })
+      .state('admin.attendances.mark', {
+        url: '/:courseId/mark',
+        templateUrl: '/modules/attendances/client/views/mark-attendance.client.view.html',
+        controller: 'MarkAttendanceController',
+        controllerAs: 'vm',
+        resolve: {
+          courseResolve: getCourse
+        },
+        data: {
+          roles: ['professor', 'admin'],
+          pageTitle: 'Mark Attendance'
         }
       })
       .state('admin.attendances.create', {
@@ -67,6 +70,23 @@
   function getAttendance($stateParams, AttendancesService) {
     return AttendancesService.get({
       attendanceId: $stateParams.attendanceId
+    }).$promise;
+  }
+
+  // getAssignedCourses.$inject = ['Authentication', 'ProfessorsService'];
+
+  // function getAssignedCourses(Authentication, ProfessorsService) {
+  //   var authentication = Authentication;
+  //   return ProfessorsService.assignedCourses({
+  //     userId: authentication.user._id
+  //   }).$promise;
+  // }
+
+  getCourse.$inject = ['$stateParams', 'CoursesService'];
+
+  function getCourse($stateParams, CoursesService) {
+    return CoursesService.get({
+      courseId: $stateParams.courseId
     }).$promise;
   }
 

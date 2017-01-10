@@ -16,7 +16,8 @@
       },
       assignedCourses: {
         method: 'GET',
-        url: '/api/professors/:userId/assigned'
+        url: '/api/professors/:userId/assigned',
+        isArray: true
       }
     });
   }

@@ -113,7 +113,7 @@ exports.delete = function (req, res) {
  */
 exports.getAssignedCourses = function(req, res) {
   var user = req.model;
-  CourseAssignment.find({ professor: user._id }).sort('name').populate('course').exec(function(err, courses) {
+  CourseAssignment.find({ professor: user._id }).lean().sort('name').populate('course').exec(function(err, courses) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)

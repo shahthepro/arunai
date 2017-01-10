@@ -6,19 +6,23 @@
 </div>
 <section class="content body">
   <ul class="list-group">
-    <li ng-repeat="attendance in vm.attendances"
+    <li ng-repeat="assignment in vm.assignments"
        class="list-group-item">
       <h4 class="list-group-item-heading">
-        {{ attendance.name }}
+        {{ assignment.course.name }}
         <div class="btn-group btn-xs pull-right">
           <a class="btn btn-primary"
-            ui-sref="admin.attendances.edit({ attendanceId: attendance._id })">
-            <i class="glyphicon glyphicon-edit"></i> Edit
+            ui-sref="admin.attendances.mark({ courseId: assignment.course._id })">
+            <i class="glyphicon glyphicon-edit"></i> Mark
+          </a>
+          <a class="btn btn-default"
+            ui-sref="admin.attendances.mark({ courseId: assignment.course._id })">
+            <i class="glyphicon glyphicon-edit"></i> View
           </a>
         </div>
       </h4>
       <div class="list-group-item-content">
-        Code: {{ attendance.code }}
+        Code: {{ assignment.course.code }}
       </div>
     </li>
   </ul>
