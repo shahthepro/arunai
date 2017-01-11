@@ -1,24 +1,10 @@
 <div class="content-header">
-  <h1>Mark Attendance
-  <small ng-if="vm.attendances.$resolved && !vm.attendances.length" class="pull-right">
-    <a ui-sref="admin.attendances.create" class="btn btn-xs btn-primary">Create a attendance</a>
-  </small></h1>
+  <h1>Mark Attendance <small>{{vm.course.name}}</small></h1>
 </div>
 <section class="content body">
   <div class="row">
     <form name="vm.form.attendanceForm" ng-submit="vm.fetchRecords()" novalidate>
       <fieldset>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="course">Course</label>
-                <select class="form-control" ng-model="vm.course" required>
-                    <option ng-repeat="assignment in vm.assignments" value="{{assignment.course._id}}" ng-selected="{{assignment.course._id == vm.attendances.course._id}}">{{assignment.course.name}}</option>
-                </select>
-                <div ng-messages="vm.form.attendanceForm.course.$error" role="alert">
-                <p class="help-block error-text" ng-message="required">Course is required.</p>
-                </div>
-            </div>
-        </div>
         <div class="col-md-4">
           <div class="form-group" show-errors>
             <label class="control-label" for="date">Date</label>
@@ -42,7 +28,7 @@
       </fieldset>
     </form>
   </div>
-  <ul class="list-group">
+  <ul ng-if="vm.attendances.length > 0" class="list-group">
     <li ng-repeat="attendance in vm.attendances"
        class="list-group-item">
       <h4 class="list-group-item-heading">
@@ -59,4 +45,20 @@
       </div>
     </li>
   </ul>
+  <form ng-if="vm.attendances.length <= 0" ng-submit="vm.markAttendance">
+    <ul class="list-group">
+      <li ng-repeat="student in vm.students"
+          class="list-group-item">
+        <h4 class="list-group-item-heading">
+          {{ student.displayName }}
+          <div class="pull-right">
+            <toggle ng-model="toggleValue" ng-change="changed()"></toggle>
+          </div>
+        </h4>
+        <div class="list-group-item-content">
+          Registration Number: {{ student.metaData.regno }}
+        </div>
+      </li>
+    </ul>
+  </form>
 </section>

@@ -1,8 +1,5 @@
 <div class="content-header">
-  <h1>Attendances
-  <small ng-if="vm.attendances.$resolved && !vm.attendances.length" class="pull-right">
-    <a ui-sref="admin.attendances.create" class="btn btn-xs btn-primary">Create a attendance</a>
-  </small></h1>
+  <h1>Daily Attendance</h1>
 </div>
 <section class="content body">
   <ul class="list-group">
@@ -12,11 +9,11 @@
         {{ assignment.course.name }}
         <div class="btn-group btn-xs pull-right">
           <a class="btn btn-primary"
-            ui-sref="admin.attendances.mark({ courseId: assignment.course._id })">
+            ui-sref="admin.attendances.mark({ assignmentId: assignment._id })">
             <i class="glyphicon glyphicon-edit"></i> Mark
           </a>
           <a class="btn btn-default"
-            ui-sref="admin.attendances.mark({ courseId: assignment.course._id })">
+            ui-sref="admin.attendances.mark({ assignmentId: assignment._id })">
             <i class="glyphicon glyphicon-edit"></i> View
           </a>
         </div>

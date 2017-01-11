@@ -19,7 +19,8 @@
     "AdminLTE": "admin-lte#^2.3.8",
     "components-font-awesome": "^4.7.0",
     "angular-file-upload": "^2.4.1",
-    "Papa-Parse": "papa.parse#4.0.2"
+    "Papa-Parse": "papa.parse#4.0.2",
+    "angular-bootstrap-toggle": "^0.1.2"
   },
   "overrides": {
     "bootstrap": {

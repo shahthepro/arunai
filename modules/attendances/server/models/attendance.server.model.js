@@ -4,7 +4,8 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-  Schema = mongoose.Schema;
+  Schema = mongoose.Schema,
+  DateOnly = require('mongoose-dateonly')(mongoose);
 
 /**
  * Attendance Schema
@@ -19,7 +20,10 @@ var AttendanceSchema = new Schema({
     ref: 'User'
   },
   date: {
-    type: Date
+    type: DateOnly
+  },
+  status: {
+    type: Boolean
   }
 });
 

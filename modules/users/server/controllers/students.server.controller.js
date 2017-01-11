@@ -105,3 +105,22 @@ exports.delete = function (req, res) {
     res.json(user);
   });
 };
+
+/**
+ * Filter students by department, batch and semester
+ */
+exports.filterStudents = function (req, res) {
+  var department = req.params.departmentId,
+    batch = parseInt(req.params.batch, 10),
+    semester = parseInt(req.params.semester, 10);
+
+  User.find({ roles: { $in: ['student'] }, department: department, 'metaData.batch': batch, 'metaData.semester': semester }, '-salt -password -providerData').sort('displayName').exec(function (err, users) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+
+    res.json(users);
+  });
+};

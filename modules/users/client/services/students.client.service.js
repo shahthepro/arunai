@@ -13,6 +13,11 @@
     }, {
       update: {
         method: 'PUT'
+      },
+      filterStudents: {
+        method: 'GET',
+        url: '/api/students/:departmentId/:batch/:semester',
+        isArray: true
       }
     });
   }

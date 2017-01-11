@@ -25,62 +25,27 @@
         }
       })
       .state('admin.attendances.mark', {
-        url: '/:courseId/mark',
+        url: '/:assignmentId/mark',
         templateUrl: '/modules/attendances/client/views/mark-attendance.client.view.html',
         controller: 'MarkAttendanceController',
         controllerAs: 'vm',
         resolve: {
-          courseResolve: getCourse
+          assignmentResolve: getAssignment
         },
         data: {
           roles: ['professor', 'admin'],
           pageTitle: 'Mark Attendance'
         }
-      })
-      .state('admin.attendances.create', {
-        url: '/create',
-        templateUrl: '/modules/attendances/client/views/form-attendance.client.view.html',
-        controller: 'AttendancesController',
-        controllerAs: 'vm',
-        resolve: {
-          attendanceResolve: newAttendance
-        },
-        data: {
-          roles: ['professor', 'admin'],
-          pageTitle: 'Attendances Create'
-        }
-      })
-      .state('admin.attendances.edit', {
-        url: '/:attendanceId/edit',
-        templateUrl: '/modules/attendances/client/views/form-attendance.client.view.html',
-        controller: 'AttendancesController',
-        controllerAs: 'vm',
-        resolve: {
-          attendanceResolve: getAttendance
-        },
-        data: {
-          roles: ['professor', 'admin'],
-          pageTitle: 'Edit Attendance {{ attendanceResolve.name }}'
-        }
       });
   }
 
-  getAttendance.$inject = ['$stateParams', 'AttendancesService'];
+  getAssignment.$inject = ['$stateParams', 'AssignmentsService'];
 
-  function getAttendance($stateParams, AttendancesService) {
-    return AttendancesService.get({
-      attendanceId: $stateParams.attendanceId
+  function getAssignment($stateParams, AssignmentsService) {
+    return AssignmentsService.get({
+      assignmentId: $stateParams.assignmentId
     }).$promise;
   }
-
-  // getAssignedCourses.$inject = ['Authentication', 'ProfessorsService'];
-
-  // function getAssignedCourses(Authentication, ProfessorsService) {
-  //   var authentication = Authentication;
-  //   return ProfessorsService.assignedCourses({
-  //     userId: authentication.user._id
-  //   }).$promise;
-  // }
 
   getCourse.$inject = ['$stateParams', 'CoursesService'];
 
@@ -90,9 +55,4 @@
     }).$promise;
   }
 
-  newAttendance.$inject = ['AttendancesService'];
-
-  function newAttendance(AttendancesService) {
-    return new AttendancesService();
-  }
 }());

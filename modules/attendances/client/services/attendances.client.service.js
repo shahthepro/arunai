@@ -14,6 +14,12 @@
     }, {
       update: {
         method: 'PUT'
+      },
+      getAttendances: {
+        method: 'GET',
+        // url: '/api/attendances/:departmentId/:batch/:semester',
+        url: '/api/attendances/:courseId/:batch/:date',
+        isArray: true
       }
     });
   }

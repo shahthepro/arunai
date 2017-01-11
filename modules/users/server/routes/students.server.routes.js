@@ -14,4 +14,7 @@ module.exports = function (app) {
     .get(students.read)
     .put(studentsPolicy.isAllowed, students.update)
     .delete(studentsPolicy.isAllowed, students.delete);
+
+  app.route('/api/students/:departmentId/:batch/:semester')
+    .get(students.filterStudents);
 };

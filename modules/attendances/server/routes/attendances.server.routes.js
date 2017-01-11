@@ -4,7 +4,8 @@
  * Module dependencies
  */
 var attendancesPolicy = require('../policies/attendances.server.policy'),
-  attendances = require('../controllers/attendances.server.controller');
+  attendances = require('../controllers/attendances.server.controller'),
+  courses = require('../../../courses/server/controllers/courses.server.controller');
 
 module.exports = function(app) {
   // Attendances Routes
@@ -17,6 +18,11 @@ module.exports = function(app) {
     .put(attendancesPolicy.isAllowed, attendances.update)
     .delete(attendancesPolicy.isAllowed, attendances.delete);
 
+  // app.route('/api/attendances/:departmentId/:batch/:semester')
+  app.route('/api/attendances/:courseId/:batch/:date')
+    .get(attendances.getAttendances);
+
   // Finish by binding the Attendance middleware
   app.param('attendanceId', attendances.attendanceByID);
+  app.param('courseId', courses.courseByID);
 };

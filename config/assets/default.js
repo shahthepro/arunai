@@ -11,6 +11,7 @@ module.exports = {
         'public/lib/bootstrap/dist/css/bootstrap-theme.css',
         'public/lib/angular-ui-notification/dist/angular-ui-notification.css',
         'public/lib/components-font-awesome/css/font-awesome.css',
+        'public/lib/angular-bootstrap-toggle/dist/angular-bootstrap-toggle.css',
         // endbower
       ],
       js: [
@@ -31,6 +32,7 @@ module.exports = {
         'public/lib/bootstrap/dist/js/bootstrap.js',
         'public/lib/Papa-Parse/papaparse.js',
         'public/lib/AdminLTE/plugins/slimScroll/jquery.slimscroll.js',
+        'public/lib/angular-bootstrap-toggle/dist/angular-bootstrap-toggle.js',
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
