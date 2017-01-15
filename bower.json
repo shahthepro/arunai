@@ -31,7 +31,9 @@
       ]
     },
     "jquery": {
-      "main": []
+      "main": [
+        "dist/*.js"
+      ]
     }
   }
 }
