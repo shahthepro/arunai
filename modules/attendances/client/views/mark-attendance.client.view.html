@@ -3,7 +3,7 @@
 </div>
 <section class="content body">
   <div class="row">
-    <form name="vm.form.attendanceForm" ng-submit="vm.fetchRecords()" novalidate>
+    <form name="vm.form.attendanceForm" novalidate>
       <fieldset>
         <div class="col-md-4">
           <div class="form-group" show-errors>
@@ -18,7 +18,7 @@
           <div class="form-group">
             <label class="control-label">&nbsp;</label>
             <div>
-                <button type="submit" class="btn btn-primary">Fetch Enrolled Students</button>
+                <button class="btn btn-primary" ng-click="vm.fetchAttendances()">Fetch</button>
             </div>
           </div>
           <div ng-show="vm.error" class="text-danger">
@@ -28,37 +28,19 @@
       </fieldset>
     </form>
   </div>
-  <ul ng-if="vm.attendances.length > 0" class="list-group">
+  <ul ng-show="vm.attendances.length" class="list-group">
     <li ng-repeat="attendance in vm.attendances"
        class="list-group-item">
       <h4 class="list-group-item-heading">
-        {{ attendance.name }}
-        <div class="btn-group btn-xs pull-right">
-          <a class="btn btn-primary"
-            ui-sref="admin.attendances.edit({ attendanceId: attendance._id })">
-            <i class="glyphicon glyphicon-edit"></i> Edit
-          </a>
+        {{ attendance.student.displayName }}
+        <div class="pull-right">
+            <toggle ng-model="attendance.status"></toggle>
         </div>
       </h4>
       <div class="list-group-item-content">
-        Code: {{ attendance.code }}
+          Registration Number: {{ attendance.student.metaData.regno }}
       </div>
     </li>
   </ul>
-  <form ng-if="vm.attendances.length <= 0" ng-submit="vm.markAttendance">
-    <ul class="list-group">
-      <li ng-repeat="student in vm.students"
-          class="list-group-item">
-        <h4 class="list-group-item-heading">
-          {{ student.displayName }}
-          <div class="pull-right">
-            <toggle ng-model="toggleValue" ng-change="changed()"></toggle>
-          </div>
-        </h4>
-        <div class="list-group-item-content">
-          Registration Number: {{ student.metaData.regno }}
-        </div>
-      </li>
-    </ul>
-  </form>
+  <button ng-show="vm.attendances.length" class="btn btn-primary btn-lg" ng-click="vm.saveAttendance()">Save</button>
 </section>

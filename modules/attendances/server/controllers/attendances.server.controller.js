@@ -21,9 +21,16 @@ exports.create = function(req, res) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
-    } else {
-      res.jsonp(attendance);
     }
+    Attendance.populate(attendance, { path: 'student course' }, function(err) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      }
+      console.log(attendance);
+      res.jsonp(attendance);
+    });
   });
 };
 
@@ -50,9 +57,16 @@ exports.update = function(req, res) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
-    } else {
-      res.jsonp(attendance);
     }
+    Attendance.populate(attendance, { path: 'student course' }, function(err) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      }
+      console.log(attendance);
+      res.jsonp(attendance);
+    });
   });
 };
 
@@ -99,7 +113,7 @@ exports.attendanceByID = function(req, res, next, id) {
     });
   }
 
-  Attendance.findById(id).exec(function (err, attendance) {
+  Attendance.findById(id).populate('student course').exec(function (err, attendance) {
     if (err) {
       return next(err);
     } else if (!attendance) {
