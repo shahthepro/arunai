@@ -19,6 +19,10 @@
         </div>
       </div>
       <div ng-show="vm.authentication.user.roles.indexOf('admin') > -1" class="form-group">
+          <label for="department">Is HOD?</label>
+          <toggle ng-model="vm.isHOD"></toggle>
+      </div>
+      <div ng-show="vm.authentication.user.roles.indexOf('admin') > -1" class="form-group">
           <label for="department">Department</label>
           <select class="form-control" ng-model="vm.professor.department" ng-required="vm.authentication.user.roles.indexOf('admin') > -1">
               <option ng-repeat="dept in vm.departments" value="{{dept._id}}" ng-selected="{{dept._id == vm.professor.department._id}}">{{dept.name}}</option>

@@ -20,7 +20,7 @@
         controller: 'CoursesListController',
         controllerAs: 'vm',
         data: {
-          roles: ['admin'],
+          roles: ['admin', 'hod'],
           pageTitle: 'Courses List'
         }
       })
@@ -33,7 +33,7 @@
           courseResolve: newCourse
         },
         data: {
-          roles: ['admin'],
+          roles: ['admin', 'hod'],
           pageTitle: 'Courses Create'
         }
       })
@@ -46,7 +46,7 @@
           courseResolve: getCourse
         },
         data: {
-          roles: ['admin'],
+          roles: ['admin', 'hod'],
           pageTitle: 'Edit Course {{ courseResolve.name }}'
         }
       });

@@ -17,6 +17,7 @@
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
+    vm.isHOD = false;
 
     function remove() {
       if ($window.confirm('Are you sure you want to delete?')) {
@@ -29,7 +30,9 @@
         $scope.$broadcast('show-errors-check-validity', 'vm.form.professorForm');
         return false;
       }
-
+      if (vm.isHOD) {
+        vm.professor.roles = ['hod'];
+      }
       // TODO: move create/update logic to service
       if (vm.professor._id) {
         vm.professor.$update(successCallback, errorCallback);

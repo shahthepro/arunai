@@ -20,7 +20,7 @@
         controller: 'AssignmentsListController',
         controllerAs: 'vm',
         data: {
-          roles: ['admin'],
+          roles: ['admin', 'hod'],
           pageTitle: 'Course Assignments List'
         }
       })
@@ -33,7 +33,7 @@
           assignmentResolve: newAssignment
         },
         data: {
-          roles: ['admin'],
+          roles: ['admin', 'hod'],
           pageTitle: 'Create Course Assignmentss'
         }
       })
@@ -46,7 +46,7 @@
           assignmentResolve: getAssignment
         },
         data: {
-          roles: ['admin'],
+          roles: ['admin', 'hod'],
           pageTitle: 'Edit Assignment'
         }
       });
