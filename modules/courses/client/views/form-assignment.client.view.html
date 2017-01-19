@@ -4,7 +4,7 @@
 <section class="content body">
   <form name="vm.form.assignmentForm" ng-submit="vm.save(vm.form.assignmentForm.$valid)" novalidate>
     <fieldset>
-      <div ng-show="vm.authentication.user.roles.indexOf('admin') > -1" class="form-group">
+      <div class="form-group">
         <label for="course">Assign Course</label>
         <select class="form-control" ng-model="vm.assignment.course" required>
             <option ng-repeat="course in vm.courses" value="{{course._id}}" ng-selected="{{course._id == vm.assignment.course._id}}">{{course.name}}</option>
@@ -13,7 +13,7 @@
           <p class="help-block error-text" ng-message="required">Course is required.</p>
         </div>
       </div>
-      <div ng-show="vm.authentication.user.roles.indexOf('admin') > -1" class="form-group">
+      <div class="form-group">
         <label for="professor">To Professor</label>
         <select class="form-control" ng-model="vm.assignment.professor" required>
             <option ng-repeat="professor in vm.professors" value="{{professor._id}}" ng-selected="{{professor._id == vm.assignment.professor._id}}">{{professor.displayName}} ({{professor.department.name}})</option>
