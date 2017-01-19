@@ -19,9 +19,6 @@
     vm.remove = remove;
     vm.save = save;
 
-    if (vm.authentication.user.roles.indexOf('admin') < 0) {
-      vm.departments = [vm.authentication.user.department];
-    }
     if (vm.authentication.user.department !== undefined) {
       vm.course.department = vm.authentication.user.department;
     }
