@@ -26,7 +26,7 @@ exports.add = function (req, res) {
   user.displayName = user.firstName + ' ' + user.lastName;
   user.password = user.username + '#1PASS';
   user.roles = ['professor'];
-  if (req.body.roles.indexOf('hod') >= 0 && req.user.roles.indexOf('admin') >= 0) {
+  if (req.body.roles !== undefined && Array.isArray(req.body.roles) && req.body.roles.indexOf('hod') >= 0 && req.user.roles.indexOf('admin') >= 0) {
     user.roles.push('hod');
   }
   if (req.user.roles.indexOf('admin') === -1) {
