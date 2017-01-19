@@ -18,7 +18,7 @@
           <p class="help-block error-text" ng-message="required">Course code is required.</p>
         </div>
       </div>
-      <div ng-show="vm.authentication.user.roles.indexOf('admin') > -1" class="form-group">
+      <div class="form-group">
           <label for="department">Department</label>
           <select class="form-control" ng-model="vm.course.department">
               <option ng-repeat="dept in vm.departments" value="{{dept._id}}" ng-selected="{{dept._id == vm.course.department._id}}">{{dept.name}}</option>
