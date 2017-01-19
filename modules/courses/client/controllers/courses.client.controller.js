@@ -32,6 +32,11 @@
         $scope.$broadcast('show-errors-check-validity', 'vm.form.courseForm');
         return false;
       }
+
+      if (vm.authentication.user.roles.indexOf('admin') < 0 && vm.authentication.user.department !== undefined) {
+        vm.course.department = vm.authentication.user.department;
+      }
+
       // TODO: move create/update logic to service
       if (vm.course._id) {
         vm.course.$update(successCallback, errorCallback);
