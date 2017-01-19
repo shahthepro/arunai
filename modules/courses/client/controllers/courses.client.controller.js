@@ -19,6 +19,10 @@
     vm.remove = remove;
     vm.save = save;
 
+    if (vm.authentication.user.department !== undefined) {
+      vm.course.department = vm.authentication.user.department;
+    }
+
     // Remove existing Course
     function remove() {
       if ($window.confirm('Are you sure you want to delete?')) {
