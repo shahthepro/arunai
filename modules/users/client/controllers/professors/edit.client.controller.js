@@ -33,6 +33,9 @@
       if (vm.isHOD) {
         vm.professor.roles = ['hod'];
       }
+      // console.log(vm.professor.department);
+      // console.log(vm.authentication.user);
+      // return;
       // TODO: move create/update logic to service
       if (vm.professor._id) {
         vm.professor.$update(successCallback, errorCallback);

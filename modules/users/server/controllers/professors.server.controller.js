@@ -30,7 +30,7 @@ exports.add = function (req, res) {
     user.roles.push('hod');
   }
   if (req.user.roles.indexOf('admin') === -1) {
-    user.department = req.user.department._id;
+    user.department = req.user.department;
   }
 
   user.save(function (err) {
@@ -83,6 +83,9 @@ exports.update = function (req, res) {
   user.username = req.body.username;
   user.metaData = req.body.metaData;
   user.markModified('metaData');
+  if (req.user.roles.indexOf('admin') === -1) {
+    user.department = req.user.department;
+  }
   user.save(function (err) {
     if (err) {
       return res.status(422).send({

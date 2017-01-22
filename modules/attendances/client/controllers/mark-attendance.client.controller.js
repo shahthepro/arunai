@@ -43,6 +43,12 @@
               newAttendance.course = vm.course;
               newAttendance.date = vm.date;
               newAttendance.status = true;
+              // var newAttendance = {
+              //   student: student,
+              //   course: vm.course,
+              //   date: vm.date,
+              //   status: true
+              // };
               vm.attendances.push(newAttendance);
             });
             Notification.info({ message: 'Attendance not yet marked for the day', delay: 3000 });

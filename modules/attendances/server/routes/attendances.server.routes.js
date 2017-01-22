@@ -20,7 +20,8 @@ module.exports = function(app) {
 
   // app.route('/api/attendances/:departmentId/:batch/:semester')
   app.route('/api/attendances/:courseId/:batch/:date')
-    .get(attendances.getAttendances);
+    .get(attendances.getAttendances)
+    .post(attendances.markAttendances);
 
   // Finish by binding the Attendance middleware
   app.param('attendanceId', attendances.attendanceByID);

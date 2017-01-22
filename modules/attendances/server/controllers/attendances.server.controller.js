@@ -16,6 +16,8 @@ var path = require('path'),
 exports.create = function(req, res) {
   var attendance = new Attendance(req.body);
 
+  console.log(attendance);
+
   attendance.save(function(err) {
     if (err) {
       return res.status(400).send({
@@ -169,4 +171,27 @@ exports.getAttendances = function (req, res) {
   //     });
   //   });
   // });
+};
+
+/**
+ * Filter attendances by department, batch and semester
+ */
+exports.markAttendances = function (req, res) {
+  var course = req.course,
+    department = course.department,
+    semester = course.semester,
+    batch = parseInt(req.params.batch, 10),
+    forDate = new Date(req.params.date * 1000);
+
+  Attendance.find({ date: forDate }).populate('student', null, { roles: { $in: ['student'] }, department: department, 'metaData.batch': batch, 'metaData.semester': semester }).exec(function (err, attendances) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+    if (attendances.length <= 0) {
+      // TODO: Upsert records
+    }
+    res.json(attendances);
+  });
 };
