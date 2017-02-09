@@ -20,11 +20,6 @@
         // url: '/api/attendances/:departmentId/:batch/:semester',
         url: '/api/attendances/:courseId/:batch/:date',
         isArray: true
-      },
-      markAttendances: {
-        method: 'POST',
-        // url: '/api/attendances/:departmentId/:batch/:semester',
-        url: '/api/attendances/:courseId/:batch/:date'
       }
     });
   }
