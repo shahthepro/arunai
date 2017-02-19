@@ -1,0 +1,15 @@
+<div class="content-header">
+  <h1>Pages
+  <small class="pull-right">
+    <a ui-sref="admin.pages.create" class="btn btn-xs btn-primary">Create a page</a>
+  </small></h1>
+</div>
+<section class="content body">
+  <div class="list-group">
+    <a ng-repeat="page in vm.pages"
+       ui-sref="admin.pages.edit({ pageId: page._id })"
+       class="list-group-item">
+      <h4 class="list-group-item-heading" ng-bind="page.title"></h4>
+    </a>
+  </div>
+</section>

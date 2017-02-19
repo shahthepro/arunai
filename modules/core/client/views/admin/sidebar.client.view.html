@@ -13,6 +13,9 @@
 <!-- Sidebar Menu -->
 <ul ng-show="vm.authentication.user" class="sidebar-menu">
     <li ui-sref-active="active"><a ui-sref="admin.dashboard"><span>Overview</span></a></li>
+    <li ng-show="vm.authentication.user.roles.indexOf('admin') >= 0" ui-sref-active="active">
+        <a ui-sref="admin.pages.list"><span>Pages</span> <i class="fa fa-angle-left pull-right"></i></a>
+    </li>
     <li ng-show="vm.authentication.user.roles.indexOf('professor') >= 0 || vm.authentication.user.roles.indexOf('hod') >= 0" class="treeview">
         <a href="#"><span>Attendance</span> <i class="fa fa-angle-left pull-right"></i></a>
         <ul class="treeview-menu">
