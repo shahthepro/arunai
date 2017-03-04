@@ -7,11 +7,12 @@ module.exports = {
     lib: {
       css: [
         // bower:css
+        'public/lib/angular-ui-notification/dist/angular-ui-notification.css',
         'public/lib/bootstrap/dist/css/bootstrap.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-        'public/lib/angular-ui-notification/dist/angular-ui-notification.css',
+        'public/lib/AdminLTE/dist/css/AdminLTE.css',
         'public/lib/components-font-awesome/css/font-awesome.css',
-        'public/lib/angular-bootstrap-toggle/dist/angular-bootstrap-toggle.css',
+        'public/lib/angular-bootstrap-toggle/dist/angular-bootstrap-toggle.min.css',
         // endbower
       ],
       js: [
@@ -19,20 +20,23 @@ module.exports = {
         'public/lib/angular/angular.js',
         'public/lib/angular-animate/angular-animate.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
-        'public/lib/ng-file-upload/ng-file-upload.js',
-        'public/lib/angular-file-upload/dist/angular-file-upload.js',
         'public/lib/angular-messages/angular-messages.js',
         'public/lib/angular-mocks/angular-mocks.js',
-        'public/lib/angular-route/angular-route.js',
         'public/lib/angular-resource/angular-resource.js',
         'public/lib/angular-ui-notification/dist/angular-ui-notification.js',
         'public/lib/angular-ui-router/release/angular-ui-router.js',
+        'public/lib/jquery/dist/jquery.min.js',
+        'public/lib/jquery/dist/jquery.slim.min.js',
+        'public/lib/bootstrap/dist/js/bootstrap.min.js',
+        'public/lib/slim-scroll/slimscroll.js',
+        'public/lib/ng-file-upload/ng-file-upload.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
-        'public/lib/jquery/dist/jquery.js',
-        'public/lib/bootstrap/dist/js/bootstrap.js',
+        'public/lib/AdminLTE/dist/js/app.js',
+        'public/lib/angular-file-upload/dist/angular-file-upload.min.js',
         'public/lib/Papa-Parse/papaparse.js',
-        'public/lib/AdminLTE/plugins/slimScroll/jquery.slimscroll.js',
-        'public/lib/angular-bootstrap-toggle/dist/angular-bootstrap-toggle.js',
+        'public/lib/angular-bootstrap-toggle/dist/angular-bootstrap-toggle.min.js',
+        'public/lib/tinymce/tinymce.js',
+        'public/lib/angular-ui-tinymce/src/tinymce.js',
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']

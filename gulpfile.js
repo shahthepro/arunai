@@ -143,7 +143,7 @@ gulp.task('uglify', function () {
     defaultAssets.client.js,
     defaultAssets.client.templates
   );
-  del(['public/dist/*']);
+  del(['public/dist/app*']);
 
   return gulp.src(assets)
     .pipe(plugins.ngAnnotate())

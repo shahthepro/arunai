@@ -21,7 +21,7 @@ $ npm install -g bower
 ## Running the application
 To run in development environment, use `gulp`.
 
-For production environment, use `node server.js`.
+For production environment, run `gulp prod` and then `node server.js`.
 
 ## Credits
 Uses [MEAN.JS](http://meanjs.org/) boilerplate.

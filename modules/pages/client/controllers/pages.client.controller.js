@@ -18,6 +18,11 @@
     vm.remove = remove;
     vm.save = save;
 
+    vm.tinymceOptions = {
+      plugins: 'link image code',
+      toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
+    };
+
     // Remove existing Page
     function remove() {
       if ($window.confirm('Are you sure you want to delete?')) {

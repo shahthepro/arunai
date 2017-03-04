@@ -1,5 +1,5 @@
 (function (app) {
   'use strict';
 
-  app.registerModule('pages');
+  app.registerModule('pages', ['ui.tinymce']);
 }(ApplicationConfiguration));
