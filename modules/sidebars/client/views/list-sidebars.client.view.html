@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Sidebars</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="sidebar in vm.sidebars"
+       ui-sref="sidebars.view({ sidebarId: sidebar._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="sidebar.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="sidebar.user" ng-bind="sidebar.user.displayName"></span>
+        <span ng-if="!sidebar.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="sidebar.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.sidebars.$resolved && !vm.sidebars.length">
+    No Sidebars yet, why don't you <a ui-sref="sidebars.create">create one</a>?
+  </div>
+</section>

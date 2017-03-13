@@ -11,8 +11,10 @@ module.exports = {
         'public/lib/bootstrap/dist/css/bootstrap.min.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
         'public/lib/AdminLTE/dist/css/AdminLTE.min.css',
+        'public/lib/AdminLTE/dist/css/skins/skin-purple.min.css',
         'public/lib/components-font-awesome/css/font-awesome.min.css',
         'public/lib/angular-bootstrap-toggle/dist/angular-bootstrap-toggle.min.css',
+        'public/lib/ng-sortable/dist/ng-sortable.min.css',
         // endbower
       ],
       js: [
@@ -30,12 +32,13 @@ module.exports = {
         'public/lib/ng-file-upload/ng-file-upload.min.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
         'public/lib/AdminLTE/dist/js/app.min.js',
+        'public/lib/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js',
         'public/lib/angular-file-upload/dist/angular-file-upload.min.js',
         'public/lib/Papa-Parse/papaparse.min.js',
         'public/lib/angular-bootstrap-toggle/dist/angular-bootstrap-toggle.min.js',
         'public/lib/tinymce/tinymce.min.js',
         'public/lib/angular-ui-tinymce/src/tinymce.js',
-        'public/lib/slim-scroll/slimscroll.js',
+        'public/lib/ng-sortable/dist/ng-sortable.min.js',
         // endbower
       ]
     },

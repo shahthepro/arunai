@@ -1,9 +1,19 @@
+body {
+    background: url(/dist/img/bg.png), url(/dist/img/bg-top.png);
+    background-position: center top;
+    background-repeat: repeat, no-repeat;
+    color: #9b9191;
+    background-color: #1c1919;
+}
 .hameid-frontend {
     background: url(/dist/img/bg.png), url(/dist/img/bg-top.png);
     background-position: center top;
     background-repeat: repeat, no-repeat;
     color: #9b9191;
     background-color: #1c1919;
+    * {
+        font-family: 'Stardos Stencil', cursive !important;
+    }
 
     a:not(.btn) {
         color: #9b9191;
@@ -11,8 +21,14 @@
             color: #FFF;
         }
     }
-}
 
+    h1, h2, h3 {
+        font-weight: bold;
+        font-size: 28px;
+        font-family: 'Stardos Stencil', cursive;
+        text-transform: uppercase;
+    }
+}
 
 .btn {
     background-image: none;

@@ -37,6 +37,7 @@ module.exports = {
         'public/lib/angular-bootstrap-toggle/dist/angular-bootstrap-toggle.min.js',
         'public/lib/tinymce/tinymce.js',
         'public/lib/angular-ui-tinymce/src/tinymce.js',
+        'public/lib/ng-sortable/dist/ng-sortable.js',
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']

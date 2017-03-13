@@ -14,9 +14,9 @@
 
   <!-- Application CSS Files -->
   {{#each cssFiles}}<link rel="stylesheet" href="/{{this}}">{{/each}}
-  
-  <link rel="stylesheet" href="/lib/AdminLTE/dist/css/AdminLTE.css">
-  <link rel="stylesheet" href="/lib/AdminLTE/dist/css/skins/skin-purple.css">
+
+  <!--<link rel="stylesheet" href="/lib/AdminLTE/dist/css/AdminLTE.css">
+  <link rel="stylesheet" href="/lib/AdminLTE/dist/css/skins/skin-purple.css">-->
 </head>
 
 <body class="ng-cloak skin-purple fixed">
@@ -50,7 +50,7 @@
   <!--Application JavaScript Files-->
     {{#each jsFiles}}<script type="text/javascript" src="/{{this}}"></script>{{/each}}
   <script type="text/javascript" src="/lib/AdminLTE/dist/js/app.js"></script>
-  
+
   <!--owasp config sync-->
   <script type="text/javascript">
     var sharedConfig = {{{ sharedConfig }}};
