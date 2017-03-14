@@ -11,6 +11,7 @@ module.exports = {
         'public/lib/bootstrap/dist/css/bootstrap.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.css',
         'public/lib/AdminLTE/dist/css/AdminLTE.css',
+        'public/lib/AdminLTE/dist/css/skins/skin-purple.css',
         'public/lib/components-font-awesome/css/font-awesome.css',
         'public/lib/angular-bootstrap-toggle/dist/angular-bootstrap-toggle.min.css',
         // endbower

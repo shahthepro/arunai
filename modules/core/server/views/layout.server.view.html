@@ -9,66 +9,33 @@
   <meta name="developer" content="Shahul Hameed <shahthepro@outlook.com>">
   <meta name="fragment" content="!">
 
-  <!-- Apple META -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-  <!-- Facebook META -->
-  <meta property="fb:app_id" content="{{facebookAppId}}">
-  <meta property="og:site_name" content="{{title}}">
-  <meta property="og:title" content="{{title}}">
-  <meta property="og:description" content="{{description}}">
-  <meta property="og:url" content="{{url}}">
-  <meta property="og:image" content="{{logo}}">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter META -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="{{twitterUsername}}">
-  <meta name="twitter:title" content="{{title}}">
-  <meta name="twitter:description" content="{{description}}">
-  <meta name="twitter:image" content="{{logo}}">
-
   <!-- Fav Icon -->
   <link href="/{{favicon}}" rel="shortcut icon" type="image/x-icon">
 
   <!-- Application CSS Files -->
-  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Stardos+Stencil' type='text/css' media='all' />
-  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Sansita+One' type='text/css' media='all' />
-  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans' type='text/css' media='all' />
   {{#each cssFiles}}<link rel="stylesheet" href="/{{this}}">{{/each}}
 </head>
 
-<body class="ng-cloak hameid-frontend">
-  <header id="header">
-    <div ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar "></div>
-  </header>
-  <section class="content">
-    <div class="container">
-        {{{block "content"}}}
-    </div>
-  </section>
-
-  <noscript>
-    <style>
-      [ng\:cloak], [ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-        display: block !important;
-      }
-    </style>
-    <div class="alert alert-warning">
-      <strong>This page requires JavaScript.</strong> Please enable it in your browser.
-    </div>
-  </noscript>
-
-  <footer>
-    <div class="footer-wrapper">
+<body class="ng-cloak skin-purple layout-top-nav">
+  <div class="wrapper">
+    <header id="header" ng-controller="HeaderController as vm" ng-include="'/modules/core/client/views/header.client.view.html'" class="main-header"></header>
+    <section class="content-wrapper">
       <div class="container">
-        <span class="pull-left">Copyright &copy; 2016 <a href="/">arunai.org</a>. All Rights Reserved.</span>
-        <!--<span class="pull-right"><a href="http://hameid.net">&hearts;</a></span>-->
+        {{{block "content"}}}
       </div>
+    </section>
+    <footer id="footer" ng-include="'/modules/core/client/views/footer.client.view.html'" class="main-footer"></footer>
+    <noscript>
+      <style>
+        [ng\:cloak], [ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: block !important;
+        }
+      </style>
+      <div class="alert alert-warning">
+        <strong>This page requires JavaScript.</strong> Please enable it in your browser.
+      </div>
+    </noscript>
     </div>
-  </footer>
-
   <!--Embedding The User Object-->
   <script type="text/javascript">
     var user = {{{ user }}};
@@ -80,6 +47,7 @@
 
   <!--Application JavaScript Files-->
     {{#each jsFiles}}<script type="text/javascript" src="/{{this}}"></script>{{/each}}
+  <script type="text/javascript" src="/lib/AdminLTE/dist/js/app.js"></script>
 
   <!--owasp config sync-->
   <script type="text/javascript">

@@ -82,11 +82,12 @@
       vm.authentication.user = response;
       Notification.info({ message: 'Welcome ' + response.firstName });
       // And redirect to the previous or home page
-      if (!$state.previous.state.name.startsWith('admin')) {
-        $state.go('admin.dashboard');
-      } else {
-        $state.go($state.previous.state.name || 'admin.dashboard', $state.previous.params);
-      }
+      $state.go('admin.dashboard');
+      // if (!$state.previous.state.name.startsWith('admin')) {
+      //   $state.go('admin.dashboard');
+      // } else {
+      //   $state.go($state.previous.state.name || 'admin.dashboard', $state.previous.params);
+      // }
     }
 
     function onUserSigninError(response) {

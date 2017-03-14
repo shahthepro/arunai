@@ -19,8 +19,9 @@
       })
       .state('admin.dashboard', {
         url: '',
-        templateUrl: '/modules/core/client/views/admin/home.client.view.html',
-        controller: 'AdminDashboardController',
+        templateUrl: '/modules/core/client/views/home.client.view.html',
+        // controller: 'AdminDashboardController',
+        controller: 'HomeController',
         controllerAs: 'vm',
         data: {
           roles: ['student', 'professor', 'hod', 'admin']
