@@ -13,9 +13,8 @@
     vm.accountMenu = menuService.getMenu('account').items[0];
     vm.authentication = Authentication;
     vm.isCollapsed = false;
+    vm.adminMenu = menuService.getMenu('adminbar');
     vm.menu = menuService.getMenu('topbar');
-
-    console.log(vm.menu);
 
     $scope.$on('$stateChangeSuccess', stateChangeSuccess);
 

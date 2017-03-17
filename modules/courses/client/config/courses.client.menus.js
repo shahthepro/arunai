@@ -8,18 +8,25 @@
   menuConfig.$inject = ['menuService'];
 
   function menuConfig(menuService) {
-    menuService.addMenuItem('topbar', {
+    menuService.addMenuItem('adminbar', {
       title: 'Courses',
       state: 'admin.courses',
       type: 'dropdown',
-      roles: ['*']
+      roles: ['professor', 'hod'],
+      position: 4
     });
 
     // Add the dropdown list item
-    menuService.addSubMenuItem('topbar', 'admin.courses', {
-      title: 'List Articles',
-      state: 'admin.courses',
-      roles: ['*']
+    menuService.addSubMenuItem('adminbar', 'admin.courses', {
+      title: 'Add Courses',
+      state: 'admin.courses.create',
+      roles: ['professor', 'hod']
+    });
+
+    menuService.addSubMenuItem('adminbar', 'admin.courses', {
+      title: 'List Courses',
+      state: 'admin.courses.list',
+      roles: ['professor', 'hod']
     });
   }
 }());

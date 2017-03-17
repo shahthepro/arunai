@@ -1,4 +1,8 @@
-.content {
+.btn {
+  background-image: none !important;
+}
+
+/*.content {
   margin-top: 50px;
 }
 .undecorated-link:hover {
@@ -40,4 +44,4 @@ a:hover .header-profile-image {
 }
 .has-error .help-inline.error-text {
   display: inline;
-}
+}*/

@@ -21,7 +21,9 @@
     <header id="header" ng-controller="HeaderController as vm" ng-include="'/modules/core/client/views/header.client.view.html'" class="main-header"></header>
     <section class="content-wrapper">
       <div class="container">
-        {{{block "content"}}}
+        <div class="content">
+          {{{block "content"}}}
+        </div>
       </div>
     </section>
     <footer id="footer" ng-include="'/modules/core/client/views/footer.client.view.html'" class="main-footer"></footer>
