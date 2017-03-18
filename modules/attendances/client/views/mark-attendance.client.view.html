@@ -28,19 +28,35 @@
       </fieldset>
     </form>
   </div>
-  <ul ng-show="vm.attendances.length" class="list-group">
-    <li ng-repeat="attendance in vm.attendances"
-       class="list-group-item">
-      <h4 class="list-group-item-heading">
-        {{ attendance.student.displayName }}
-        <div class="pull-right">
-            <toggle ng-model="attendance.status"></toggle>
+  <div ng-show="vm.isLoading || vm.attendances.length" class="box box-solid">
+    <div class="box-body">
+      <div ng-show="vm.isLoading" class="loader-container">
+        <div class="loader">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
         </div>
-      </h4>
-      <div class="list-group-item-content">
-          Registration Number: {{ attendance.student.metaData.regno }}
       </div>
-    </li>
-  </ul>
+      <table ng-show="vm.attendances.length" class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Register Number</th>
+            <th width="100px">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="attendance in vm.attendances">
+              <td>{{ attendance.student.displayName }}</td>
+              <td>{{ attendance.student.metaData.regno }}</td>
+              <td><toggle ng-model="attendance.status"></toggle></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
   <button ng-show="vm.attendances.length" class="btn btn-primary btn-lg" ng-click="vm.saveAttendance()">Save</button>
 </section>

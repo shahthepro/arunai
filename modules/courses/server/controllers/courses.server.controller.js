@@ -41,7 +41,6 @@ exports.read = function(req, res) {
  */
 exports.update = function(req, res) {
   var course = req.course;
-  console.log(course);
   course = _.extend(course, req.body);
 
   course.save(function(err) {

@@ -16,8 +16,6 @@ var path = require('path'),
 exports.create = function(req, res) {
   var attendance = new Attendance(req.body);
 
-  console.log(attendance);
-
   attendance.save(function(err) {
     if (err) {
       return res.status(400).send({
@@ -30,7 +28,6 @@ exports.create = function(req, res) {
           message: errorHandler.getErrorMessage(err)
         });
       }
-      console.log(attendance);
       res.jsonp(attendance);
     });
   });
@@ -66,7 +63,6 @@ exports.update = function(req, res) {
           message: errorHandler.getErrorMessage(err)
         });
       }
-      console.log(attendance);
       res.jsonp(attendance);
     });
   });

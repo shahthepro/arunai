@@ -19,7 +19,7 @@
     // Add the dropdown list item
     menuService.addSubMenuItem('adminbar', 'admin.attendances', {
       title: 'Daily Attendance',
-      state: 'admin.attendances.mark',
+      state: 'admin.attendances.list',
       roles: ['professor', 'hod']
     });
 
