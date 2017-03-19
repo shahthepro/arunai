@@ -36,6 +36,19 @@
           roles: ['professor', 'admin'],
           pageTitle: 'Mark Attendance'
         }
+      })
+      .state('admin.attendances.report', {
+        url: '/:assignmentId/report',
+        templateUrl: '/modules/attendances/client/views/report-attendance.client.view.html',
+        controller: 'ReportAttendanceController',
+        controllerAs: 'vm',
+        resolve: {
+          assignmentResolve: getAssignment
+        },
+        data: {
+          roles: ['professor', 'admin'],
+          pageTitle: 'Report Attendance'
+        }
       });
   }
 

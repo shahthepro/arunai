@@ -35,11 +35,10 @@
         semester: vm.course.semester
       }).$promise;
 
-      Promise.all([attendancePromise, studentsPromise]).then(resps => {
+      Promise.all([attendancePromise, studentsPromise]).then(function(resps) {
         var attendances = resps[0];
         var students = resps[1];
         var ind;
-
         vm.attendances = attendances;
 
         for (ind = 0; ind < attendances.length; ind++) {
@@ -61,7 +60,7 @@
         }
 
         vm.isLoading = false;
-      }).catch(reason => {
+      }).catch(function(reason) {
         vm.isLoading = false;
         Notification.error({ title: 'Something went wrong :(', message: reason, delay: 3000 });
       });
@@ -74,21 +73,28 @@
      */
     vm.saveAttendance = function() {
       vm.isLoading = true;
+      var attendancePromises = [];
       vm.attendances.forEach(function(attendance) {
         if (attendance._id) {
-          attendance.$update(successCallback, errorCallback);
+          attendancePromises.push(attendance.$update(successCallback, errorCallback).$promise);
         } else {
-          attendance.$save(successCallback, errorCallback);
+          attendancePromises.push(attendance.$save(successCallback, errorCallback).$promise);
         }
       });
 
-      vm.isLoading = false;
+      Promise.all(attendancePromises).then(function(resps) {
+        Notification.success({ message: 'Attendaces records were saved!', delay: 3000 });
+        vm.isLoading = false;
+      }).catch(function(reason) {
+        Notification.error({ message: 'Something went wrong :(', delay: 3000 });
+        vm.isLoading = false;
+      });
 
       function successCallback(res) {
       }
 
       function errorCallback(res) {
-        vm.error = res.data.message;
+        // vm.error = res.data.message;
       }
     };
   }

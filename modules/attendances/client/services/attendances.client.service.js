@@ -17,8 +17,12 @@
       },
       getAttendances: {
         method: 'GET',
-        // url: '/api/attendances/:departmentId/:batch/:semester',
         url: '/api/attendances/:courseId/:batch/:date',
+        isArray: true
+      },
+      report: {
+        method: 'GET',
+        url: '/api/attendances/:courseId/:batch/:fromDate/:toDate',
         isArray: true
       }
     });

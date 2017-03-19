@@ -27,8 +27,8 @@
   opacity: 0.65;
 }
 .content-header input {
-  width: auto;
   position: absolute;
-  top: 15px;
   right: 10px;
+  top: 15px;
+  width: auto;
 }

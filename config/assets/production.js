@@ -39,6 +39,7 @@ module.exports = {
         'public/lib/tinymce/tinymce.min.js',
         'public/lib/angular-ui-tinymce/src/tinymce.js',
         'public/lib/ng-sortable/dist/ng-sortable.min.js',
+        'public/lib/angular-drag-and-drop-lists/angular-drag-and-drop-lists.min.js',
         // endbower
       ]
     },

@@ -1,5 +1,5 @@
 <div class="content-header">
-  <h1>Mark Attendance <small>{{vm.course.name}}</small></h1>
+  <h1>Attendance Report <small>{{vm.course.name}}</small></h1>
 </div>
 <section class="content body">
   <div class="row">
@@ -7,10 +7,19 @@
       <fieldset>
         <div class="col-md-4">
           <div class="form-group" show-errors>
-            <label class="control-label" for="date">Date</label>
-            <input name="date" type="date" ng-model="vm.date" id="date" class="form-control" placeholder="Date" required>
+            <label class="control-label" for="fromDate">From</label>
+            <input name="fromDate" type="date" ng-model="vm.fromDate" class="form-control" placeholder="Date" required>
             <div ng-messages="vm.form.attendanceForm.date.$error" role="alert">
-              <p class="help-block error-text" ng-message="required">Date is required.</p>
+              <p class="help-block error-text" ng-message="required">From Date is required.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group" show-errors>
+            <label class="control-label" for="toDate">To</label>
+            <input name="toDate" type="date" ng-model="vm.toDate" class="form-control" placeholder="Date" required>
+            <div ng-messages="vm.form.attendanceForm.date.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">To Date is required.</p>
             </div>
           </div>
         </div>
@@ -40,23 +49,24 @@
           <div class="circle"></div>
         </div>
       </div>
-      <table ng-show="vm.attendances.length" class="table table-bordered">
+      <table ng-show="vm.attendances.length" class="table table-bordered" style="overflow-x: auto">
         <thead>
           <tr>
             <th>Student Name</th>
-            <th>Register Number</th>
-            <th width="100px">Status</th>
+            <th ng-repeat="date in vm.datesBetween">
+              {{ date | date }}
+            </th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="attendance in vm.attendances">
-              <td>{{ attendance.student.displayName }}</td>
-              <td>{{ attendance.student.metaData.regno }}</td>
-              <td><toggle on="P" off="A" onstyle="btn-success" offstyle="btn-warning" ng-model="attendance.status"></toggle></td>
+          <tr ng-repeat="student in vm.students">
+              <td>{{ student.metaData.regno }}</td>
+              <td ng-repeat="date in vm.datesBetween">
+                {{ vm.reportRecords | presentstatus: student:date }}
+              </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-  <button ng-show="vm.attendances.length" class="btn btn-primary btn-lg" ng-click="vm.saveAttendance()">Save</button>
 </section>

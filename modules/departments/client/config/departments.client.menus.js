@@ -20,13 +20,13 @@
     menuService.addSubMenuItem('adminbar', 'admin.departments', {
       title: 'Add Departments',
       state: 'admin.departments.create',
-      roles: ['professor', 'hod']
+      roles: ['admin']
     });
 
     menuService.addSubMenuItem('adminbar', 'admin.departments', {
       title: 'List Departments',
       state: 'admin.departments.list',
-      roles: ['professor', 'hod']
+      roles: ['admin']
     });
   }
 }());

@@ -145,6 +145,38 @@ exports.getAttendances = function (req, res) {
     }
     res.json(attendances);
   });
+};
+
+
+/**
+ * Get attendance report between two dates
+ */
+exports.reportAttendances = function (req, res) {
+  var course = req.course,
+    department = course.department,
+    semester = course.semester,
+    batch = parseInt(req.params.batch, 10),
+    fromDate = new Date(req.params.fromDate * 1000),
+    toDate = new Date(req.params.toDate * 1000);
+
+  Attendance.find({ date: { '$lte': toDate, '$gte': fromDate } })
+  .populate('student', null, { roles: { $in: ['student'] }, department: department, 'metaData.batch': batch, 'metaData.semester': semester })
+  // .aggregate([
+  //   {
+  //     '$group': {
+  //       '_id': '$student',
+  //       'attendances': { '$push': '$$ROOT' }
+  //      }
+  //   }
+  // ])
+  .exec(function (err, attendances) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+    res.json(attendances);
+  });
   // User.find({ roles: { $in: ['student'] }, department: department, 'metaData.batch': batch, 'metaData.semester': semester }).select('_id displayName metaData').exec(function (err, users) {
   //   if (err) {
   //     return res.status(422).send({

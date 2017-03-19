@@ -14,7 +14,6 @@ module.exports = {
         'public/lib/AdminLTE/dist/css/skins/skin-purple.css',
         'public/lib/components-font-awesome/css/font-awesome.css',
         'public/lib/angular-bootstrap-toggle/dist/angular-bootstrap-toggle.min.css',
-        'public/lib/datatables.net-dt/css/jQuery.dataTables.css',
         // endbower
       ],
       js: [
@@ -40,7 +39,7 @@ module.exports = {
         'public/lib/tinymce/tinymce.js',
         'public/lib/angular-ui-tinymce/src/tinymce.js',
         'public/lib/ng-sortable/dist/ng-sortable.js',
-        'public/lib/datatables.net/js/jQuery.dataTables.js',
+        'public/lib/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js'
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']

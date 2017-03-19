@@ -24,12 +24,6 @@
     });
 
     menuService.addSubMenuItem('adminbar', 'admin.attendances', {
-      title: 'Attendance Report',
-      state: 'admin.attendances.report',
-      roles: ['professor', 'hod']
-    });
-
-    menuService.addSubMenuItem('adminbar', 'admin.attendances', {
       title: 'Attendance',
       state: 'admin.attendances.view',
       roles: ['student'],
