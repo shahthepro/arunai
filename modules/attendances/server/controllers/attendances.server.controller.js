@@ -147,6 +147,25 @@ exports.getAttendances = function (req, res) {
   });
 };
 
+/**
+ * Filter attendances by student
+ */
+exports.getByStudent = function (req, res) {
+  var student = req.user;
+
+  Attendance.find({ 'student': student }).populate('course', null, { semester: student.metaData.semester }).exec(function (err, attendances) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+    if (attendances.length <= 0) {
+      // TODO: Upsert records
+    }
+    res.json(attendances);
+  });
+};
+
 
 /**
  * Get attendance report between two dates

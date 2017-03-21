@@ -1,0 +1,39 @@
+<div class="content-header">
+  <h1>Attendance Report</h1>
+</div>
+<section class="content body">
+  <div class="box box-solid">
+    <div class="box-body">
+      <div ng-show="vm.isLoading" class="loader-container">
+        <div class="loader">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+      </div>
+      <table ng-show="vm.attendances.length" class="table table-bordered" style="overflow-x: auto">
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Present</th>
+            <th>Absent</th>
+            <th>Total</th>
+            <th>Average</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="course in vm.attendances">
+            <td>{{ course.name }}</td>
+            <td>{{ course.present }}</td>
+            <td>{{ course.absent }}</td>
+            <td>{{ course.present + course.absent }}</td>
+            <td>{{ course.present / (course.present + course.absent) * 100 | number: 2 }}%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

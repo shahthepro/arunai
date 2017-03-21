@@ -49,6 +49,16 @@
           roles: ['professor', 'admin'],
           pageTitle: 'Report Attendance'
         }
+      })
+      .state('admin.attendances.view', {
+        url: '/view',
+        templateUrl: '/modules/attendances/client/views/view-attendance.client.view.html',
+        controller: 'ViewAttendanceController',
+        controllerAs: 'vm',
+        data: {
+          roles: ['student'],
+          pageTitle: 'View Attendance'
+        }
       });
   }
 

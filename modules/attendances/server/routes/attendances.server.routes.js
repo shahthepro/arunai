@@ -24,6 +24,9 @@ module.exports = function(app) {
   app.route('/api/attendances/:courseId/:batch/:fromDate/:toDate')
     .get(attendances.reportAttendances);
 
+  app.route('/api/attendances/bystudent/:userId')
+    .get(attendances.getByStudent);
+
   // Finish by binding the Attendance middleware
   app.param('attendanceId', attendances.attendanceByID);
   app.param('courseId', courses.courseByID);

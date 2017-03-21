@@ -7,7 +7,7 @@
         return '-'; // Not Applicable
       }
       var textDate = date.getFullYear() + ('0' + date.getMonth()).slice(-2) + ('0' + date.getDate()).slice(-2);
-      return (records[student._id]['' + textDate])?'P':'A';
+      return (records[student._id]['' + textDate]) ? 'P' : 'A';
     };
   });
 

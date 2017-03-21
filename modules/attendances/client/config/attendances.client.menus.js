@@ -12,7 +12,7 @@
       title: 'Assesments',
       state: 'admin.attendances',
       type: 'dropdown',
-      roles: ['professor', 'hod'],
+      roles: ['professor', 'hod', 'student'],
       position: 2
     });
 

@@ -24,6 +24,11 @@
         method: 'GET',
         url: '/api/attendances/:courseId/:batch/:fromDate/:toDate',
         isArray: true
+      },
+      getByStudent: {
+        method: 'GET',
+        url: '/api/attendances/bystudent/:studentId',
+        isArray: true
       }
     });
   }
