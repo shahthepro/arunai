@@ -1,46 +1,57 @@
-.hameid-frontend {
-    header {
-        height: 120px;
-        background: url(/dist/img/bg-header.png) center top repeat-x;
-        .navbar {
-            display: table;
-            margin-bottom: 0px;
-            width: 100%;
-            height: 100%;
-        }
-        .container {
-            display: table-cell;
-            vertical-align: middle;
+.header-wrap {
+    background-color: #3d4e5b;
+    width: 100%;
+    color: #fff;
+    .site-header {
+        background-image: -webkit-linear-gradient(rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+        background-image: -moz-linear-gradient(rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+        background-image: -o-linear-gradient(rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+        background-image: linear-gradient(rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+        padding: 2em 0;
+        border: 1px solid rgba(255,255,255,0.1);
+        border-right-width: 0;
+        border-left-width: 0;
+    }
+    a {
+        color: #fff;
+    }
+    .navbar {
+        height: 50px;
+        margin: 0;
+
+        & > div {
+            margin: 0;
+            padding: 0;
         }
 
-        .navbar-toggle .icon-bar {
-            background-color: #222;
-        }
-
-        .nav > li > a:hover, .nav > li > a:focus, .nav > li.active > a, a:hover,
-        .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+        .nav .open > a {
             background: none;
+            border: 0px;
         }
 
-        li.active a {
-            color: #FFF;
-        }
-        
-        a {
-            -o-transition: all 0.3s ease;
-            -webkit-transition: all 0.3s ease;
-            -moz-transition: all 0.3s ease;
-            transition: all 0.3s ease;
-        }
+        ul > li {
+            margin: 9px 0px;
+            border-radius: 3px;
+            background-color: transparent;
+            border: 0px;
 
-        ul ul {
-            background: url(/dist/img/bg-header.png) center top repeat-x;
-            background-color: #1c1919;
-            li {
-                color: #FFF;
-                a {
-                    color: #FFF;
+            &.active, &:hover, &:active, &.open {
+                border-bottom: 1px solid rgba(255,255,255,0.2);
+                box-shadow: 0 1px 1px rgba(0,0,0,0.15) inset;
+                background-color: #384550;
+                & > a {
+                    background: none;
+                    color: #fff;
                 }
+            }
+
+            & > a {
+                border-radius: 3px;
+                padding: 0 12px;
+                text-shadow: 0 -1px 0 rgba(0,0,0,0.15);
+                font-size: 1.1em;
+                font-family: Crete Round, Arial, Helvetica, sans-serif;
+                line-height: 2.2em;
             }
         }
     }

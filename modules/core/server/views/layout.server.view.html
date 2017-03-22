@@ -16,9 +16,9 @@
   {{#each cssFiles}}<link rel="stylesheet" href="/{{this}}">{{/each}}
 </head>
 
-<body class="ng-cloak skin-purple layout-top-nav">
+<body class="ng-cloak layout-top-nav">
   <div class="wrapper">
-    <header id="header" ng-controller="HeaderController as vm" ng-include="'/modules/core/client/views/header.client.view.html'" class="main-header"></header>
+    <header id="header" ng-controller="HeaderController as vm" ng-include="'/modules/core/client/views/header.client.view.html'" class="header-wrap"></header>
     <section class="content-wrapper">
       <div class="container">
         <div class="content">
@@ -26,7 +26,7 @@
         </div>
       </div>
     </section>
-    <footer id="footer" ng-include="'/modules/core/client/views/footer.client.view.html'" class="main-footer"></footer>
+    <footer id="footer" ng-controller="FooterController as vm" ng-include="'/modules/core/client/views/footer.client.view.html'" class="footer-wrap"></footer>
     <noscript>
       <style>
         [ng\:cloak], [ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
