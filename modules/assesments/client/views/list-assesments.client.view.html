@@ -1,0 +1,26 @@
+<div class="content-header">
+  <h1>Internal Assesment</h1>
+</div>
+<section class="content body">
+  <ul class="list-group">
+    <li ng-repeat="assignment in vm.assignments"
+       class="list-group-item">
+      <h4 class="list-group-item-heading">
+        {{ assignment.course.name }}
+        <div class="btn-group btn-xs pull-right">
+          <a class="btn btn-primary"
+            ui-sref="admin.assesments.mark({ assignmentId: assignment._id })">
+            <i class="glyphicon glyphicon-edit"></i> Update
+          </a>
+          <a class="btn btn-default"
+            ui-sref="admin.assesments.report({ assignmentId: assignment._id })">
+            <i class="glyphicon glyphicon-edit"></i> View
+          </a>
+        </div>
+      </h4>
+      <div class="list-group-item-content">
+        Code: {{ assignment.course.code }}
+      </div>
+    </li>
+  </ul>
+</section>

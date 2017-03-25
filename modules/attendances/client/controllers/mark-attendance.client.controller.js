@@ -83,7 +83,7 @@
       });
 
       Promise.all(attendancePromises).then(function(resps) {
-        Notification.success({ message: 'Attendaces records were saved!', delay: 3000 });
+        Notification.success({ message: 'Attendances records were saved!', delay: 3000 });
         vm.isLoading = false;
       }).catch(function(reason) {
         Notification.error({ message: 'Something went wrong :(', delay: 3000 });

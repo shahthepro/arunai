@@ -180,14 +180,6 @@ exports.reportAttendances = function (req, res) {
 
   Attendance.find({ date: { '$lte': toDate, '$gte': fromDate } })
   .populate('student', null, { roles: { $in: ['student'] }, department: department, 'metaData.batch': batch, 'metaData.semester': semester })
-  // .aggregate([
-  //   {
-  //     '$group': {
-  //       '_id': '$student',
-  //       'attendances': { '$push': '$$ROOT' }
-  //      }
-  //   }
-  // ])
   .exec(function (err, attendances) {
     if (err) {
       return res.status(422).send({
@@ -196,26 +188,4 @@ exports.reportAttendances = function (req, res) {
     }
     res.json(attendances);
   });
-  // User.find({ roles: { $in: ['student'] }, department: department, 'metaData.batch': batch, 'metaData.semester': semester }).select('_id displayName metaData').exec(function (err, users) {
-  //   if (err) {
-  //     return res.status(422).send({
-  //       message: errorHandler.getErrorMessage(err)
-  //     });
-  //   }
-  //   var students = users.map(function (student) {
-  //     return student._id;
-  //   });
-  //   // TODO: Use promises
-  //   Attendance.find({ student: { $in: students }, date: forDate }).exec(function (err, attendances) {
-  //     if (err) {
-  //       return res.status(422).send({
-  //         message: errorHandler.getErrorMessage(err)
-  //       });
-  //     }
-  //     res.json({
-  //       students: users,
-  //       attendanceRecords: attendances
-  //     });
-  //   });
-  // });
 };

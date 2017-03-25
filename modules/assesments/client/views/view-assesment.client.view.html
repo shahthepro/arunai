@@ -1,0 +1,39 @@
+<div class="content-header">
+  <h1>Assesment Report</h1>
+</div>
+<section class="content body">
+  <div class="box box-solid">
+    <div class="box-body">
+      <div ng-show="vm.isLoading" class="loader-container">
+        <div class="loader">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+      </div>
+      <table ng-show="vm.assesments.length" class="table table-bordered" style="overflow-x: auto">
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>CIA I</th>
+            <th>CIA II</th>
+            <th>CIA III</th>
+            <th>Model</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="course in vm.assesments">
+            <td>{{ course.name }}</td>
+            <td>{{ course.cia1 || 'N/A' }}</td>
+            <td>{{ course.cia2 || 'N/A' }}</td>
+            <td>{{ course.cia3 || 'N/A' }}</td>
+            <td>{{ course.model || 'N/A' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

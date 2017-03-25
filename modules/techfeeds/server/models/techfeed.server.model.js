@@ -19,8 +19,26 @@ var TechFeedSchema = new Schema({
   summary: {
     type: String,
     default: '',
-    required: 'Please fill TechFeed summary',
     trim: true
+  },
+  link: {
+    type: String,
+    default: '',
+    trim: true
+  },
+  category: {
+    type: String,
+    default: '',
+    trim: true
+  },
+  image: {
+    type: String,
+    default: '',
+    trim: true
+  },
+  approved: {
+    type: Boolean,
+    default: false
   },
   created: {
     type: Date,

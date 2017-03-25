@@ -1,0 +1,67 @@
+<div class="content-header">
+  <h1>Update Internal Marks <small>{{vm.course.name}}</small></h1>
+</div>
+<section class="content body">
+  <div class="row">
+    <form name="vm.form.assesmentForm" novalidate>
+      <fieldset>
+        <div class="col-md-4">
+          <div class="form-group" show-errors>
+            <label class="control-label" for="test">Test</label>
+            <select name="test" ng-model="vm.assesmentTest" class="form-control" required>
+              <option value="cia1">CIA I</option>
+              <option value="cia2">CIA II</option>
+              <option value="cia3">CIA III</option>
+              <option value="model">Model Exam</option>
+            </select>
+            <div ng-messages="vm.form.assesmentForm.test.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Test is required.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label">&nbsp;</label>
+            <div>
+                <button class="btn btn-primary" ng-click="vm.fetchAssesments()">Fetch</button>
+            </div>
+          </div>
+          <div ng-show="vm.error" class="text-danger">
+            <strong ng-bind="vm.error"></strong>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div ng-show="vm.isLoading || vm.assesments.length" class="box box-solid">
+    <div class="box-body">
+      <div ng-show="vm.isLoading" class="loader-container">
+        <div class="loader">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+      </div>
+      <table ng-show="vm.assesments.length" class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Register Number</th>
+            <th width="100px">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="assesment in vm.assesments">
+              <td>{{ assesment.student.displayName }}</td>
+              <td>{{ assesment.student.metaData.regno }}</td>
+              <td><input type="number" class="form-control" min="0" max="100" ng-model="assesment.score" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <button ng-show="vm.assesments.length" class="btn btn-primary btn-lg" ng-click="vm.saveAssesment()">Save</button>
+</section>

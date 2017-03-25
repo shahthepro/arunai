@@ -40,34 +40,10 @@
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
-            <!-- Navbar Right Menu -->
-            <div class="navbar-custom-menu">
+            <div class="navbar-custom-menu pull-right">
                 <ul class="nav navbar-nav">
                     <li ng-hide="vm.authentication.user" ui-sref-active="active"><a ui-sref="authentication.signin">Sign In</a></li>
-                    <li ng-show="vm.authentication.user" class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <!--<img src="/{{vm.authentication.user.profileImageURL}}" class="user-image" alt="User Image">-->
-                        <span class="hidden-xs">{{vm.authentication.user.displayName}}</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                        <!-- User image -->
-                        <li class="user-header">
-                            <img src="/{{vm.authentication.user.profileImageURL}}" class="img-circle" alt="User Image">
-                            <p>
-                            {{vm.authentication.user.displayName}}
-                            <small>{{vm.authentication.user.department.name}}</small>
-                            </p>
-                        </li>
-                        <!-- Menu Footer-->
-                        <li class="user-footer">
-                            <div class="pull-left">
-                            </div>
-                            <div class="pull-right">
-                                <a href="/api/auth/signout" target="_self" class="btn btn-default">Signout</a>
-                            </div>
-                        </li>
-                        </ul>
-                    </li>
+                    <li ng-show="vm.authentication.user"><a href="/api/auth/signout" target="_self">Sign Out</a></li>
                 </ul>
             </div>
             <!-- /.navbar-custom-menu -->
