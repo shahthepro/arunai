@@ -1,3 +1,73 @@
 .content-wrapper {
     margin-bottom: 60px;
 }
+
+.widget {
+    position: relative;
+    z-index: 1;
+    padding: 13px 15px;
+    border: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+    background: #fff;
+    color: #555;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-bottom: 3em;
+
+    .widget-title {
+        background-color: #3d4e5b;
+        background-image: -webkit-linear-gradient(rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+        background-image: -moz-linear-gradient(rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+        background-image: -o-linear-gradient(rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+        background-image: linear-gradient(rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        position: relative;
+        overflow: hidden;
+        margin: -14px -16px 13px -16px;
+        padding: 0.7em 15px;
+        border: 1px solid rgba(0,0,0,0.01);
+        color: #fff;
+        text-shadow: 0 -1px 0 rgba(0,0,0,0.2);
+
+    }
+
+    .widget-content {
+
+        .widget-featured-image {
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            line-height: 1.6;
+            display: block;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            li {
+                margin-bottom: 0.6em;
+                padding-bottom: 0.6em;
+                border-bottom: 1px dotted #d4d4d4;
+                position: relative;
+                padding-left: 0;
+                color: #555;
+                display: list-item;
+                text-align: -webkit-match-parent;
+                a {
+                    color: #333;
+                    &:hover, &:active, &:focus {
+                        color: #5ea5d7;
+                    }
+                }
+                &:last-child {
+                    border-bottom: 0;
+                    margin-bottom: 0;
+                    padding-bottom: 0;
+                }
+            }
+        }
+    }
+}

@@ -19,6 +19,18 @@
 <body class="ng-cloak layout-top-nav">
   <div class="wrapper">
     <header id="header" ng-controller="HeaderController as vm" ng-include="'/modules/core/client/views/header.client.view.html'" class="header-wrap"></header>
+    <div class="featured-content">
+      <div class="substrate"></div>
+      <div  class="container">
+        <div ng-show="'home' | isState">
+          <div ng-include="'/modules/core/client/views/featured.client.view.html'" class="featured-wrap">
+          </div>
+        </div>
+        <div ng-hide="'home' | isState" class="page-title">
+          <h1 page-header></h1>
+        </div>
+      </div>
+    </div>
     <section class="content-wrapper">
       <div class="container">
         <div class="content">
