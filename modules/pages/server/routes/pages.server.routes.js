@@ -17,6 +17,10 @@ module.exports = function(app) {
     .put(pages.update)
     .delete(pages.delete);
 
+  app.route('/api/pages/slugged/:slug')
+    .get(pages.read);
+
   // Finish by binding the Page middleware
   app.param('pageId', pages.pageByID);
+  app.param('slug', pages.pageBySlug);
 };

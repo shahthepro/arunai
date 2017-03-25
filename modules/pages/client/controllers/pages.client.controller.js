@@ -46,7 +46,7 @@
 
       function successCallback(res) {
         $state.go('pages.view', {
-          pageId: res._id
+          slug: res.slug
         });
       }
 

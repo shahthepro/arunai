@@ -16,6 +16,12 @@ var PageSchema = new Schema({
     required: 'Please fill Page title',
     trim: true
   },
+  slug: {
+    type: String,
+    required: 'Please fill Page slug',
+    unique: true,
+    trim: true
+  },
   content: {
     type: String,
     default: '',

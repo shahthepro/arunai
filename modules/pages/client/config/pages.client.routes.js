@@ -55,12 +55,12 @@
         }
       })
       .state('pages.view', {
-        url: '/:pageId',
+        url: '/:slug',
         templateUrl: '/modules/pages/client/views/view-page.client.view.html',
         controller: 'PagesController',
         controllerAs: 'vm',
         resolve: {
-          pageResolve: getPage
+          pageResolve: getPageBySlug
         },
         data: {
           pageTitle: '{{ pageResolve.title }}'
@@ -73,6 +73,12 @@
   function getPage($stateParams, PagesService) {
     return PagesService.get({
       pageId: $stateParams.pageId
+    }).$promise;
+  }
+
+  function getPageBySlug($stateParams, PagesService) {
+    return PagesService.getBySlug({
+      slug: $stateParams.slug
     }).$promise;
   }
 

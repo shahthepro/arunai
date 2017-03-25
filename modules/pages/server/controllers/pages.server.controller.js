@@ -103,7 +103,7 @@ exports.pageByID = function(req, res, next, id) {
     });
   }
 
-  Page.findById(id).populate('user', 'displayName').exec(function (err, page) {
+  Page.findById(id).exec(function (err, page) {
     if (err) {
       return next(err);
     } else if (!page) {
@@ -115,3 +115,22 @@ exports.pageByID = function(req, res, next, id) {
     next();
   });
 };
+
+/**
+ * Page middleware
+ */
+exports.pageBySlug = function(req, res, next, id) {
+
+  Page.findOne({ slug: id }).exec(function (err, page) {
+    if (err) {
+      return next(err);
+    } else if (!page) {
+      return res.status(404).send({
+        message: 'No Page with that identifier has been found'
+      });
+    }
+    req.page = page;
+    next();
+  });
+};
+

@@ -12,6 +12,13 @@
         </div>
       </div>
       <div class="form-group" show-errors>
+        <label class="control-label" for="slug">Slug</label>
+        <input name="slug" type="text" ng-model="vm.page.slug" id="slug" class="form-control" placeholder="Slug" required>
+        <div ng-messages="vm.form.pageForm.slug.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Page slug is required.</p>
+        </div>
+      </div>
+      <div class="form-group" show-errors>
         <label class="control-label" for="content">Content</label>
         <textarea name="content" ui-tinymce="vm.tinymceOptions" ng-model="vm.page.content" id="content" class="form-control" placeholder="Content">
         </textarea>

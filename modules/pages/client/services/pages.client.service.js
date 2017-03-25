@@ -18,6 +18,10 @@
       query: {
         method: 'GET',
         isArray: true
+      },
+      getBySlug: {
+        method: 'GET',
+        url: '/api/pages/slugged/:slug'
       }
     });
   }
