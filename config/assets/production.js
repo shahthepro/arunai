@@ -14,7 +14,6 @@ module.exports = {
         'public/lib/AdminLTE/dist/css/skins/skin-purple.min.css',
         'public/lib/components-font-awesome/css/font-awesome.min.css',
         'public/lib/angular-bootstrap-toggle/dist/angular-bootstrap-toggle.min.css',
-        'public/lib/ng-sortable/dist/ng-sortable.min.css',
         // endbower
       ],
       js: [
@@ -38,8 +37,8 @@ module.exports = {
         'public/lib/angular-bootstrap-toggle/dist/angular-bootstrap-toggle.min.js',
         'public/lib/tinymce/tinymce.min.js',
         'public/lib/angular-ui-tinymce/src/tinymce.js',
-        'public/lib/ng-sortable/dist/ng-sortable.min.js',
-        'public/lib/angular-drag-and-drop-lists/angular-drag-and-drop-lists.min.js',
+        'public/lib/jquery-ui/jquery-ui.min.js',
+        'public/lib/angular-ui-sortable/sortable.min.js',
         // endbower
       ]
     },

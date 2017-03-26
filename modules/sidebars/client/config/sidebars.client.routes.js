@@ -9,11 +9,6 @@
 
   function routeConfig($stateProvider) {
     $stateProvider
-      .state('sidebars', {
-        abstract: true,
-        url: '/sidebars',
-        template: '<ui-view/>'
-      })
       .state('admin.sidebars', {
         abstract: true,
         url: '/sidebars',
@@ -21,17 +16,17 @@
       })
       .state('admin.sidebars.list', {
         url: '',
-        templateUrl: 'modules/sidebars/client/views/list-sidebars.client.view.html',
+        templateUrl: '/modules/sidebars/client/views/list-sidebars.client.view.html',
         controller: 'SidebarsListController',
         controllerAs: 'vm',
         data: {
           roles: ['admin'],
-          pageTitle: 'Sidebars List'
+          pageTitle: 'Sidebars'
         }
       })
       .state('admin.sidebars.create', {
         url: '/create',
-        templateUrl: 'modules/sidebars/client/views/form-sidebar.client.view.html',
+        templateUrl: '/modules/sidebars/client/views/form-sidebar.client.view.html',
         controller: 'SidebarsController',
         controllerAs: 'vm',
         roles: ['admin'],
@@ -40,12 +35,12 @@
         },
         data: {
           roles: ['admin'],
-          pageTitle: 'Sidebars Create'
+          pageTitle: 'New Sidebar'
         }
       })
       .state('admin.sidebars.edit', {
         url: '/:sidebarId/edit',
-        templateUrl: 'modules/sidebars/client/views/form-sidebar.client.view.html',
+        templateUrl: '/modules/sidebars/client/views/form-sidebar.client.view.html',
         controller: 'SidebarsController',
         controllerAs: 'vm',
         resolve: {

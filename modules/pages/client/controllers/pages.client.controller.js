@@ -20,7 +20,7 @@
 
     vm.tinymceOptions = {
       plugins: 'link image code',
-      toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
+      toolbar: 'undo redo | styleselect formatselect fontselect fontsizeselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | image | outdent indent | code'
     };
 
     // Remove existing Page

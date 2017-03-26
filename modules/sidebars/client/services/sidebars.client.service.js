@@ -9,7 +9,7 @@
   SidebarsService.$inject = ['$resource'];
 
   function SidebarsService($resource) {
-    return $resource('api/sidebars/:sidebarId', {
+    return $resource('/api/sidebars/:sidebarId', {
       sidebarId: '@_id'
     }, {
       update: {

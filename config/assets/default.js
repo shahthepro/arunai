@@ -18,6 +18,8 @@ module.exports = {
       ],
       js: [
         // bower:js
+        'public/lib/jquery/dist/jquery.min.js',
+        'public/lib/jquery-ui/jquery-ui.js',
         'public/lib/angular/angular.js',
         'public/lib/angular-animate/angular-animate.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
@@ -26,8 +28,6 @@ module.exports = {
         'public/lib/angular-resource/angular-resource.js',
         'public/lib/angular-ui-notification/dist/angular-ui-notification.js',
         'public/lib/angular-ui-router/release/angular-ui-router.js',
-        'public/lib/jquery/dist/jquery.min.js',
-        'public/lib/jquery/dist/jquery.slim.min.js',
         'public/lib/bootstrap/dist/js/bootstrap.min.js',
         'public/lib/slim-scroll/slimscroll.js',
         'public/lib/ng-file-upload/ng-file-upload.js',
@@ -38,8 +38,7 @@ module.exports = {
         'public/lib/angular-bootstrap-toggle/dist/angular-bootstrap-toggle.min.js',
         'public/lib/tinymce/tinymce.js',
         'public/lib/angular-ui-tinymce/src/tinymce.js',
-        'public/lib/ng-sortable/dist/ng-sortable.js',
-        'public/lib/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js'
+        'public/lib/angular-ui-sortable/sortable.js'
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']

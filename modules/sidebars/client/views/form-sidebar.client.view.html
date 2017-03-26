@@ -1,24 +1,42 @@
-<section>
-  <div class="page-header">
-    <h1>{{vm.sidebar._id ? 'Edit Sidebar' : 'New Sidebar'}}</h1>
-  </div>
-  <div class="col-md-12">
-    <form name="vm.form.sidebarForm" class="form-horizontal" ng-submit="vm.save(vm.form.sidebarForm.$valid)" novalidate>
-      <fieldset>
-        <div class="form-group" show-errors>
-          <label class="control-label" for="name">Name</label>
-          <input name="name" type="text" ng-model="vm.sidebar.name" id="name" class="form-control" placeholder="Name" required>
-          <div ng-messages="vm.form.sidebarForm.name.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Sidebar name is required.</p>
-          </div>
+<section class="content body">
+  <form name="vm.form.sidebarForm" class="form-horizontal" ng-submit="vm.save(vm.form.sidebarForm.$valid)" novalidate>
+    <fieldset>
+      <div class="form-group" show-errors>
+        <label class="control-label" for="name">Name</label>
+        <input name="name" type="text" ng-model="vm.sidebar.name" id="name" class="form-control" placeholder="Name" required>
+        <div ng-messages="vm.form.sidebarForm.name.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Sidebar name is required.</p>
         </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-default">{{vm.sidebar._id ? 'Update' : 'Create'}}</button>
-        </div>
-        <div ng-show="vm.error" class="text-danger">
-          <strong ng-bind="vm.error"></strong>
-        </div>
-      </fieldset>
-    </form>
-  </div>
+      </div>
+      <p class="help-block">Hold and drag to rearrange the widgets.</p>
+      <table class="table">
+        <thead>
+          <tr ng-show="vm.sidebar.widgets.length">
+            <th width="30%">Widget Title</th>
+            <th>Widget Content</th>
+            <th width="10%">Actions</th>
+          </tr>
+        </thead>
+        <tbody ui-sortable ng-model="vm.sidebar.widgets">
+          <tr ng-repeat="widget in vm.sidebar.widgets track by $index" style="cursor: move;">
+            <td><input type="text" class="form-control" ng-model="widget.title" /></td>
+            <td><textarea class="form-control" ng-model="widget.content"></textarea></td>
+            <td><a class="btn btn-danger" ng-click="vm.removeWidget($index)">Remove</a></td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <a ng-click="vm.addWidget()" class="btn btn-block btn-success">Add Widget</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">{{vm.sidebar._id ? 'Update' : 'Create'}}</button>
+        <button type="submit" class="btn btn-danger" ng-click="vm.remove()" ng-show="vm.sidebar._id">Delete</button>
+      </div>
+      <div ng-show="vm.error" class="text-danger">
+        <strong ng-bind="vm.error"></strong>
+      </div>
+    </fieldset>
+  </form>
 </section>

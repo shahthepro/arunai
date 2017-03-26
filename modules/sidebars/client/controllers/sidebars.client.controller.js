@@ -17,6 +17,12 @@
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
+    vm.addWidget = addWidget;
+    vm.removeWidget = removeWidget;
+    vm.tinymceOptions = {
+      plugins: 'link image code',
+      toolbar: 'undo redo | styleselect formatselect fontselect fontsizeselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | image | outdent indent | code'
+    };
 
     // Remove existing Sidebar
     function remove() {
@@ -40,12 +46,26 @@
       }
 
       function successCallback(res) {
-        //
+        $state.go('admin.sidebars.list');
       }
 
       function errorCallback(res) {
         vm.error = res.data.message;
       }
+    }
+
+    // Add new widget
+    function addWidget() {
+      vm.sidebar.widgets = vm.sidebar.widgets || [];
+      vm.sidebar.widgets.push({
+        title: 'New Sidebar Widget',
+        content: 'Widget content goes here...'
+      });
+    }
+
+    // Remove widget
+    function removeWidget(index) {
+      vm.sidebar.widgets.splice(index, 1);
     }
   }
 }());

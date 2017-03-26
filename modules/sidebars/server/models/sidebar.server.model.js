@@ -16,14 +16,7 @@ var SidebarSchema = new Schema({
     required: 'Please fill Sidebar name',
     trim: true
   },
-  created: {
-    type: Date,
-    default: Date.now
-  },
-  user: {
-    type: Schema.ObjectId,
-    ref: 'User'
-  }
+  widgets: [Schema.Types.Mixed]
 });
 
 mongoose.model('Sidebar', SidebarSchema);

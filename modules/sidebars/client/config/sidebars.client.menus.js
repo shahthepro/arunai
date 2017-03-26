@@ -8,26 +8,17 @@
   menuConfig.$inject = ['menuService'];
 
   function menuConfig(menuService) {
-    menuService.addMenuItem('adminbar', {
-      title: 'Pages',
-      state: 'admin.pages',
-      roles: ['admin'],
-      type: 'dropdown',
-      position: 1
-    });
-
     menuService.addSubMenuItem('adminbar', 'admin.pages', {
-      title: 'All Pages',
-      state: 'admin.pages.list',
+      title: 'All Sidebars',
+      state: 'admin.sidebars.list',
       roles: ['admin'],
-      position: 1
+      position: 3
     });
-
     menuService.addSubMenuItem('adminbar', 'admin.pages', {
-      title: 'New Page',
-      state: 'admin.pages.create',
+      title: 'New Sidebar',
+      state: 'admin.sidebars.create',
       roles: ['admin'],
-      position: 2
+      position: 4
     });
   }
 }());
