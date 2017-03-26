@@ -28,6 +28,18 @@ var PageSchema = new Schema({
     required: 'Please fill Page content',
     trim: true
   },
+  showOnMenu: {
+    type: Boolean,
+    default: true
+  },
+  menuPosition: {
+    type: Number,
+    default: true
+  },
+  sidebar: {
+    type: Schema.ObjectId,
+    ref: 'Sidebar'
+  },
   created: {
     type: Date,
     default: Date.now

@@ -14,10 +14,13 @@ module.exports = {
         'public/lib/AdminLTE/dist/css/skins/skin-purple.min.css',
         'public/lib/components-font-awesome/css/font-awesome.min.css',
         'public/lib/angular-bootstrap-toggle/dist/angular-bootstrap-toggle.min.css',
+        'public/lib/angular-loading-bar/build/loading-bar.min.css',
         // endbower
       ],
       js: [
         // bower:js
+        'public/lib/jquery/dist/jquery.min.js',
+        'public/lib/jquery-ui/jquery-ui.min.js',
         'public/lib/angular/angular.min.js',
         'public/lib/angular-animate/angular-animate.min.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js',
@@ -26,7 +29,6 @@ module.exports = {
         'public/lib/angular-resource/angular-resource.min.js',
         'public/lib/angular-ui-notification/dist/angular-ui-notification.min.js',
         'public/lib/angular-ui-router/release/angular-ui-router.min.js',
-        'public/lib/jquery/dist/jquery.min.js',
         'public/lib/bootstrap/dist/js/bootstrap.min.js',
         'public/lib/ng-file-upload/ng-file-upload.min.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
@@ -37,8 +39,8 @@ module.exports = {
         'public/lib/angular-bootstrap-toggle/dist/angular-bootstrap-toggle.min.js',
         'public/lib/tinymce/tinymce.min.js',
         'public/lib/angular-ui-tinymce/src/tinymce.js',
-        'public/lib/jquery-ui/jquery-ui.min.js',
         'public/lib/angular-ui-sortable/sortable.min.js',
+        'public/lib/angular-loading-bar/build/loading-bar.min.js',
         // endbower
       ]
     },

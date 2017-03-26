@@ -6,9 +6,9 @@
     .module('pages')
     .controller('PagesController', PagesController);
 
-  PagesController.$inject = ['$scope', '$state', '$window', 'Authentication', 'pageResolve'];
+  PagesController.$inject = ['$scope', '$state', '$window', 'Authentication', 'pageResolve', 'SidebarsService'];
 
-  function PagesController ($scope, $state, $window, Authentication, page) {
+  function PagesController ($scope, $state, $window, Authentication, page, SidebarsService) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -17,6 +17,8 @@
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
+
+    vm.sidebars = SidebarsService.query();
 
     vm.tinymceOptions = {
       plugins: 'link image code',

@@ -81,7 +81,7 @@ exports.delete = function(req, res) {
  * List of Pages
  */
 exports.list = function(req, res) {
-  Page.find().sort('-created').populate('user', 'displayName').exec(function(err, pages) {
+  Page.find().sort('-created').populate('user', 'displayName').populate('sidebar').exec(function(err, pages) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
@@ -103,7 +103,7 @@ exports.pageByID = function(req, res, next, id) {
     });
   }
 
-  Page.findById(id).exec(function (err, page) {
+  Page.findById(id).populate('sidebar').exec(function (err, page) {
     if (err) {
       return next(err);
     } else if (!page) {
@@ -121,7 +121,7 @@ exports.pageByID = function(req, res, next, id) {
  */
 exports.pageBySlug = function(req, res, next, id) {
 
-  Page.findOne({ slug: id }).exec(function (err, page) {
+  Page.findOne({ slug: id }).populate('sidebar').exec(function (err, page) {
     if (err) {
       return next(err);
     } else if (!page) {
