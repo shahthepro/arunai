@@ -21,7 +21,7 @@
         controllerAs: 'vm',
         data: {
           roles: ['professor', 'admin'],
-          pageTitle: 'Assesments List'
+          pageTitle: 'Internal Assesments'
         }
       })
       .state('admin.assesments.mark', {
@@ -34,7 +34,7 @@
         },
         data: {
           roles: ['professor', 'admin'],
-          pageTitle: 'Mark Assesment'
+          pageTitle: 'Update Internal Marks'
         }
       })
       .state('admin.assesments.report', {
@@ -47,7 +47,7 @@
         },
         data: {
           roles: ['professor', 'admin'],
-          pageTitle: 'Report Assesment'
+          pageTitle: 'Assesment Report'
         }
       })
       .state('admin.assesments.view', {
@@ -57,7 +57,7 @@
         controllerAs: 'vm',
         data: {
           roles: ['student'],
-          pageTitle: 'View Assesment'
+          pageTitle: 'Assesment Report'
         }
       });
   }

@@ -14,29 +14,36 @@
         url: '/sidebars',
         template: '<ui-view/>'
       })
-      .state('sidebars.list', {
+      .state('admin.sidebars', {
+        abstract: true,
+        url: '/sidebars',
+        template: '<ui-view/>'
+      })
+      .state('admin.sidebars.list', {
         url: '',
         templateUrl: 'modules/sidebars/client/views/list-sidebars.client.view.html',
         controller: 'SidebarsListController',
         controllerAs: 'vm',
         data: {
+          roles: ['admin'],
           pageTitle: 'Sidebars List'
         }
       })
-      .state('sidebars.create', {
+      .state('admin.sidebars.create', {
         url: '/create',
         templateUrl: 'modules/sidebars/client/views/form-sidebar.client.view.html',
         controller: 'SidebarsController',
         controllerAs: 'vm',
+        roles: ['admin'],
         resolve: {
           sidebarResolve: newSidebar
         },
         data: {
-          roles: ['user', 'admin'],
+          roles: ['admin'],
           pageTitle: 'Sidebars Create'
         }
       })
-      .state('sidebars.edit', {
+      .state('admin.sidebars.edit', {
         url: '/:sidebarId/edit',
         templateUrl: 'modules/sidebars/client/views/form-sidebar.client.view.html',
         controller: 'SidebarsController',
@@ -45,20 +52,8 @@
           sidebarResolve: getSidebar
         },
         data: {
-          roles: ['user', 'admin'],
+          roles: ['admin'],
           pageTitle: 'Edit Sidebar {{ sidebarResolve.name }}'
-        }
-      })
-      .state('sidebars.view', {
-        url: '/:sidebarId',
-        templateUrl: 'modules/sidebars/client/views/view-sidebar.client.view.html',
-        controller: 'SidebarsController',
-        controllerAs: 'vm',
-        resolve: {
-          sidebarResolve: getSidebar
-        },
-        data: {
-          pageTitle: 'Sidebar {{ sidebarResolve.name }}'
         }
       });
   }

@@ -25,7 +25,7 @@
         controller: 'PagesListController',
         controllerAs: 'vm',
         data: {
-          pageTitle: 'Pages List'
+          pageTitle: 'Pages'
         }
       })
       .state('admin.pages.create', {
@@ -38,7 +38,7 @@
         },
         data: {
           roles: ['user', 'admin'],
-          pageTitle: 'Pages Create'
+          pageTitle: 'New Page'
         }
       })
       .state('admin.pages.edit', {

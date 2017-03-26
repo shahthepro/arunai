@@ -21,7 +21,7 @@
         controllerAs: 'vm',
         data: {
           roles: ['admin', 'hod'],
-          pageTitle: 'Courses List'
+          pageTitle: 'Courses'
         }
       })
       .state('admin.courses.create', {
@@ -34,7 +34,7 @@
         },
         data: {
           roles: ['admin', 'hod'],
-          pageTitle: 'Courses Create'
+          pageTitle: 'Add Course'
         }
       })
       .state('admin.courses.edit', {

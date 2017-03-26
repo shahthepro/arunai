@@ -1,9 +1,3 @@
-<div class="content-header">
-  <h1>Courses
-  <small ng-if="vm.courses.$resolved && !vm.courses.length" class="pull-right">
-    <a ui-sref="admin.courses.create" class="btn btn-xs btn-primary">Create a course</a>
-  </small></h1>
-</div>
 <section class="content body">
   <ul class="list-group">
     <li ng-repeat="course in vm.courses"

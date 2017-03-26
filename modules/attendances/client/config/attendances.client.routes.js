@@ -21,7 +21,7 @@
         controllerAs: 'vm',
         data: {
           roles: ['professor', 'admin'],
-          pageTitle: 'Attendances List'
+          pageTitle: 'Daily Attendance'
         }
       })
       .state('admin.attendances.mark', {
@@ -47,7 +47,7 @@
         },
         data: {
           roles: ['professor', 'admin'],
-          pageTitle: 'Report Attendance'
+          pageTitle: 'Attendance Report'
         }
       })
       .state('admin.attendances.view', {
@@ -57,7 +57,7 @@
         controllerAs: 'vm',
         data: {
           roles: ['student'],
-          pageTitle: 'View Attendance'
+          pageTitle: 'Attendance Report'
         }
       });
   }

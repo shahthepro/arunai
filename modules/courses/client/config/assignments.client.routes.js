@@ -21,7 +21,7 @@
         controllerAs: 'vm',
         data: {
           roles: ['admin', 'hod'],
-          pageTitle: 'Course Assignments List'
+          pageTitle: 'Course Assignments'
         }
       })
       .state('admin.assignments.create', {
@@ -34,7 +34,7 @@
         },
         data: {
           roles: ['admin', 'hod'],
-          pageTitle: 'Create Course Assignmentss'
+          pageTitle: 'Assign Courses'
         }
       })
       .state('admin.assignments.edit', {
@@ -47,7 +47,7 @@
         },
         data: {
           roles: ['admin', 'hod'],
-          pageTitle: 'Edit Assignment'
+          pageTitle: 'Update Course Assignment'
         }
       });
   }

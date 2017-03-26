@@ -21,7 +21,7 @@
         controllerAs: 'vm',
         data: {
           roles: ['admin'],
-          pageTitle: 'Departments List'
+          pageTitle: 'Departments'
         }
       })
       .state('admin.departments.create', {
@@ -34,7 +34,7 @@
         },
         data: {
           roles: ['admin'],
-          pageTitle: 'Departments Create'
+          pageTitle: 'Add Department'
         }
       })
       .state('admin.departments.edit', {

@@ -22,7 +22,7 @@
         controllerAs: 'vm',
         data: {
           roles: ['hod', 'admin'],
-          pageTitle: 'List Students'
+          pageTitle: 'Students'
         }
       })
       .state('admin.students.add', {
@@ -32,7 +32,7 @@
         controllerAs: 'vm',
         data: {
           roles: ['hod', 'admin'],
-          pageTitle: 'Add Students'
+          pageTitle: 'Import Students'
         }
       })
       .state('admin.students.create', {

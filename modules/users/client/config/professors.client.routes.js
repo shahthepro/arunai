@@ -22,7 +22,7 @@
         controllerAs: 'vm',
         data: {
           roles: ['hod', 'admin'],
-          pageTitle: 'List Professors'
+          pageTitle: 'Professors'
         }
       })
       .state('admin.professors.add', {
@@ -32,7 +32,7 @@
         controllerAs: 'vm',
         data: {
           roles: ['hod', 'admin'],
-          pageTitle: 'Add Professors'
+          pageTitle: 'Import Professors'
         }
       })
       .state('admin.professors.create', {

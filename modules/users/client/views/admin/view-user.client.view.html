@@ -1,15 +1,3 @@
-<div class="content-header">
-    <h1><span ng-bind="vm.user.username"></span>
-      <div class="btn-group pull-right">
-        <a class="btn btn-info" ui-sref="admin.user-edit({userId: vm.user._id})">
-          <i class="glyphicon glyphicon-edit"></i> Edit
-        </a>
-        <a class="btn btn-danger" ng-click="vm.remove()" ng-if="!vm.isContextUserSelf()">
-          <i class="glyphicon glyphicon-trash"></i> Delete
-        </a>
-      </div>
-    </h1>
-</div>
 <section class="content body">
 
   <div class="row">

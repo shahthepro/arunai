@@ -21,7 +21,7 @@
     // Remove existing Sidebar
     function remove() {
       if ($window.confirm('Are you sure you want to delete?')) {
-        vm.sidebar.$remove($state.go('sidebars.list'));
+        vm.sidebar.$remove($state.go('admin.sidebars.list'));
       }
     }
 
@@ -40,9 +40,7 @@
       }
 
       function successCallback(res) {
-        $state.go('sidebars.view', {
-          sidebarId: res._id
-        });
+        //
       }
 
       function errorCallback(res) {
