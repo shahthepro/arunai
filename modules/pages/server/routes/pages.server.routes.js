@@ -12,6 +12,8 @@ module.exports = function(app) {
     .get(pages.list)
     .post(pages.create);
 
+  app.route('/api/pages/onmenu').get(pages.pagesOnMenu);
+
   app.route('/api/pages/:pageId').all(pagesPolicy.isAllowed)
     .get(pages.read)
     .put(pages.update)

@@ -134,3 +134,18 @@ exports.pageBySlug = function(req, res, next, id) {
   });
 };
 
+
+/**
+ * Fetch pages to be shown on menu
+ */
+exports.pagesOnMenu = function(req, res) {
+  Page.find({ showOnMenu: true }).exec(function(err, pages) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.jsonp(pages);
+    }
+  });
+};

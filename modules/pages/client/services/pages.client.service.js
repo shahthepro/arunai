@@ -22,6 +22,11 @@
       getBySlug: {
         method: 'GET',
         url: '/api/pages/slugged/:slug'
+      },
+      getForMenu: {
+        method: 'GET',
+        url: '/api/pages/onmenu',
+        isArray: true
       }
     });
   }

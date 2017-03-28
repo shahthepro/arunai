@@ -32,7 +32,7 @@ var PageSchema = new Schema({
     type: Boolean,
     default: true
   },
-  menuPosition: {
+  menuOrder: {
     type: Number,
     default: true
   },
