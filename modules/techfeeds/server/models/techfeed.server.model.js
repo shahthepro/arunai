@@ -40,6 +40,10 @@ var TechFeedSchema = new Schema({
     type: Boolean,
     default: false
   },
+  featured: {
+    type: Boolean,
+    default: false
+  },
   created: {
     type: Date,
     default: Date.now
