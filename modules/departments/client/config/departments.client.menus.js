@@ -12,7 +12,7 @@
       title: 'Departments',
       state: 'admin.departments',
       type: 'dropdown',
-      roles: ['professor', 'hod'],
+      roles: ['admin'],
       position: 3
     });
 
@@ -20,13 +20,13 @@
     menuService.addSubMenuItem('adminbar', 'admin.departments', {
       title: 'Add Departments',
       state: 'admin.departments.create',
-      roles: ['admin']
+      roles: ['admin'],
     });
 
     menuService.addSubMenuItem('adminbar', 'admin.departments', {
       title: 'List Departments',
       state: 'admin.departments.list',
-      roles: ['admin']
+      roles: ['admin'],
     });
   }
 }());

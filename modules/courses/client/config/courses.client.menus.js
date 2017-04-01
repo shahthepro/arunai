@@ -12,7 +12,7 @@
       title: 'Courses',
       state: 'admin.courses',
       type: 'dropdown',
-      roles: ['professor', 'hod'],
+      roles: ['professor', 'hod', 'admin'],
       position: 4
     });
 
@@ -20,13 +20,13 @@
     menuService.addSubMenuItem('adminbar', 'admin.courses', {
       title: 'Add Courses',
       state: 'admin.courses.create',
-      roles: ['professor', 'hod']
+      roles: ['professor', 'hod', 'admin']
     });
 
     menuService.addSubMenuItem('adminbar', 'admin.courses', {
       title: 'List Courses',
       state: 'admin.courses.list',
-      roles: ['professor', 'hod']
+      roles: ['professor', 'hod', 'admin']
     });
   }
 }());
