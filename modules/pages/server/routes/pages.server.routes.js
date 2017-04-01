@@ -14,6 +14,9 @@ module.exports = function(app) {
 
   app.route('/api/pages/onmenu').get(pages.pagesOnMenu);
 
+  app.route('/api/pages/events')
+    .get(pages.listEvents);
+
   app.route('/api/pages/:pageId').all(pagesPolicy.isAllowed)
     .get(pages.read)
     .put(pages.update)
@@ -21,6 +24,10 @@ module.exports = function(app) {
 
   app.route('/api/pages/slugged/:slug')
     .get(pages.read);
+
+  app.route('/api/pages/tagged/:tag')
+    .get(pages.listByTag);
+
 
   // Finish by binding the Page middleware
   app.param('pageId', pages.pageByID);

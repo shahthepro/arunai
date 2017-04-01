@@ -33,6 +33,10 @@
         <!--<option ng-repeat="sidebar in vm.sidebars" value="{{sidebar._id}}" ng-selected="{{vm.page.sidebar._id == sidebar._id}}">{{ sidebar.name }} {{vm.page.sidebar._id == sidebar._id}}</option>-->
       </div>
       <div class="form-group">
+          <label>Is News or Event?</label>
+          <toggle on="Yes" off="No" onstyle="btn-success" offstyle="btn-warning" ng-model="vm.page.isEvent"></toggle>
+      </div>
+      <div class="form-group">
           <label>Show on menu?</label>
           <toggle on="Yes" off="No" onstyle="btn-success" offstyle="btn-warning" ng-model="vm.page.showOnMenu"></toggle>
           <span ng-show="vm.page.showOnMenu" style="margin-left: 25px;">

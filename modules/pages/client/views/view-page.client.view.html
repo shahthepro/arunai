@@ -7,7 +7,7 @@
   <div class="col-md-4">
     <section ng-repeat="widget in vm.page.sidebar.widgets" class="widget">
       <div class="widget-title" ng-bind="widget.title"></div>
-      <div class="widget-content" ng-bind="widget.content"></div>
+      <div class="widget-content" ng-bind-html="widget.content | unsafe"></div>
     </section>
   </div>
 </div>

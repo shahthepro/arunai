@@ -43,6 +43,13 @@ var PageSchema = new Schema({
   created: {
     type: Date,
     default: Date.now
+  },
+  tags: {
+    type: [String]
+  },
+  isEvent: {
+    type: Boolean,
+    default: false
   }
 });
 

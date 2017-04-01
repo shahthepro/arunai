@@ -27,6 +27,11 @@
         method: 'GET',
         url: '/api/pages/onmenu',
         isArray: true
+      },
+      getEvents: {
+        method: 'GET',
+        url: '/api/pages/events',
+        isArray: true
       }
     });
   }

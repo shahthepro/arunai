@@ -93,6 +93,36 @@ exports.list = function(req, res) {
 };
 
 /**
+ * List by tag
+ */
+exports.listByTag = function(req, res) {
+  Page.find({ tag: { $in: req.params.tag } }).sort('-created').populate('sidebar').exec(function(err, pages) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.jsonp(pages);
+    }
+  });
+};
+
+/**
+ * List events
+ */
+exports.listEvents = function(req, res) {
+  Page.find({ isEvent: true }).sort('-created').populate('sidebar').exec(function(err, pages) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.jsonp(pages);
+    }
+  });
+};
+
+/**
  * Page middleware
  */
 exports.pageByID = function(req, res, next, id) {

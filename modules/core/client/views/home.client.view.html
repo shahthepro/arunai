@@ -8,7 +8,7 @@
         <img src="/modules/core/client/img/dummy/1.jpg" class="widget-featured-image" />
         <p>A rapidly changing world is one of the biggest challenges facing today’s graduates. New technologies, new working practices and changes in tastes and fashions require graduates who are equipped with flexible attitudes. AEC provides students with the skills to succeed. AEC, a Co-Educational institution was established in the year 1993. The college is spread out on serene sylvan settings on the Chittor – Cuddalore national highway, providing a holistic environment, ideal for dedicated study with discipline, away from the hustle...</p>
         <div>
-          <a class="btn btn-primary" href="/pages/welcome-to-aec">Read more</a>
+          <a class="btn btn-primary" ui-sref="pages.view({ slug: 'welcome-to-aec' })">Read more</a>
         </div>
       </div>
     </div>
@@ -19,13 +19,10 @@
         News &amp; Happenings
       </div>
       <div class="widget-content">
-        <ul>
-          <li><a href="#">Some event news to be updated and shown here.</a></li>
-          <li><a href="#">Some event news to be updated and shown here.</a></li>
-          <li><a href="#">Some event news to be updated and shown here.</a></li>
-          <li><a href="#">Some event news to be updated and shown here.</a></li>
-          <li><a href="#">Some event news to be updated and shown here.</a></li>
-          <li><a href="#">Some event news to be updated and shown here.</a></li>
+        <ul ng-show="vm.events">
+          <li ng-repeat="event in vm.events">
+            <a ui-sref="pages.view({ slug: event.slug })">{{event.title}}</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -38,29 +35,21 @@
         Sports
       </div>
       <div class="widget-content">
-        <ul>
-          <li><a href="#">Some event news to be updated and shown here.</a></li>
-          <li><a href="#">Some event news to be updated and shown here.</a></li>
-          <li><a href="#">Some event news to be updated and shown here.</a></li>
-          <li><a href="#">Some event news to be updated and shown here.</a></li>
-          <li><a href="#">Some event news to be updated and shown here.</a></li>
-        </ul>
+        <img src="/modules/core/client/img/slides/7.jpg" class="widget-centered-image"/>
+        <p>Arunai Engineering College is one of the few colleges in the country, under the guidance of Thiru.E.V. VELU - Founder Chairman where the overall development of the student is considered as the chief objective and carried out with great passion</p>
+        <div>
+          <a class="btn btn-primary" ui-sref="pages.view({ slug: 'sports' })">Read more</a>
+        </div>
       </div>
     </div>
   </div>
   <div class="col-md-7">
     <div class="widget">
       <div class="widget-title">
-        Infrastructure
+        Where to find us?
       </div>
       <div class="widget-content">
-        <ul>
-          <li><a href="#">Some event news to be updated and shown here.</a></li>
-          <li><a href="#">Some event news to be updated and shown here.</a></li>
-          <li><a href="#">Some event news to be updated and shown here.</a></li>
-          <li><a href="#">Some event news to be updated and shown here.</a></li>
-          <li><a href="#">Some event news to be updated and shown here.</a></li>
-        </ul>
+        <iframe style="width: 100%;" height="262" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=arunai&amp;ie=UTF8&amp;hq=arunai&amp;hnear=&amp;radius=15000&amp;t=m&amp;cid=12490656735148554289&amp;ll=12.661778,79.123535&amp;spn=3.751067,5.493164&amp;z=7&amp;output=embed"></iframe>
       </div>
     </div>
   </div>

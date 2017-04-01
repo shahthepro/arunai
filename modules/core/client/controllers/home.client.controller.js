@@ -5,7 +5,10 @@
     .module('core')
     .controller('HomeController', HomeController);
 
-  function HomeController() {
+  HomeController.$inject = ['PagesService'];
+
+  function HomeController(PagesService) {
     var vm = this;
+    vm.events = PagesService.getEvents();
   }
 }());

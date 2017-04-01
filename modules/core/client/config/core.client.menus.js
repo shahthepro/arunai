@@ -14,10 +14,10 @@
     });
 
     menuService.addMenuItem('account', {
-      title: '',
+      title: 'Account',
       state: 'settings',
       type: 'dropdown',
-      roles: ['user']
+      roles: ['user', 'student', 'professor', 'admin', 'hod']
     });
 
     menuService.addSubMenuItem('account', 'settings', {
