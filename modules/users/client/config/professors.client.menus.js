@@ -12,7 +12,7 @@
       title: 'Professors',
       state: 'admin.professors',
       type: 'dropdown',
-      roles: ['professor', 'hod'],
+      roles: ['professor', 'hod', 'admin'],
       position: 5
     });
 
@@ -20,19 +20,19 @@
     menuService.addSubMenuItem('adminbar', 'admin.professors', {
       title: 'Add Professor',
       state: 'admin.professors.create',
-      roles: ['professor', 'hod']
+      roles: ['professor', 'hod', 'admin']
     });
 
     menuService.addSubMenuItem('adminbar', 'admin.professors', {
       title: 'Import Professors',
       state: 'admin.professors.add',
-      roles: ['professor', 'hod']
+      roles: ['professor', 'hod', 'admin']
     });
 
     menuService.addSubMenuItem('adminbar', 'admin.professors', {
       title: 'List Professors',
       state: 'admin.professors.list',
-      roles: ['professor', 'hod']
+      roles: ['professor', 'hod', 'admin']
     });
 
     menuService.addSubMenuItem('adminbar', 'admin.professors', {
