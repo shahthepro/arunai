@@ -111,7 +111,7 @@ exports.listByTag = function(req, res) {
  * List events
  */
 exports.listEvents = function(req, res) {
-  Page.find({ isEvent: true }).sort('-created').populate('sidebar').exec(function(err, pages) {
+  Page.find({ isEvent: true }).sort('-created').populate('sidebar').limit(6).exec(function(err, pages) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
